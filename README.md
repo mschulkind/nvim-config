@@ -50,19 +50,19 @@ nvim
 This config works seamlessly in VSCode using the [VSCode Neovim extension](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim). The configuration automatically detects VSCode mode and adapts accordingly:
 
 ### What Works in VSCode
-- ** Full Plugin Support**: LSP, Treesitter, Telescope, Copilot, and navigation plugins work perfectly
-- ** Smart Config Split**: VSCode-specific features are disabled to avoid conflicts
-- ** Native Integration**: Leverages VSCode's built-in features while keeping Neovim's power
+- **Full Plugin Support**: LSP, Treesitter, Telescope, Copilot, and navigation plugins work perfectly
+- **Smart Config Split**: VSCode-specific features are disabled to avoid conflicts
+- **Native Integration**: Leverages VSCode's built-in features while keeping Neovim's power
 
 ### VSCode-Disabled Features
 These features are disabled in VSCode to prevent conflicts (use VSCode's native features instead):
 
 | Feature | VSCode Alternative | Reason |
 |---------|-------------------|---------|
-| **🗂 nvim-tree** (`<F6>`, `g?` help) | File explorer | Use VSCode's file explorer |
-| ** Lualine** | Status line | Use VSCode's status bar |
-| ** Gruvbox** | Color scheme | Use VSCode's theme system |
-| ** telescope-undo** (`<F5>`) | Undo history | Use VSCode's timeline |
+| **nvim-tree** (`<F6>`, `g?` help) | File explorer | Use VSCode's file explorer |
+| **Lualine** | Status line | Use VSCode's status bar |
+| **Gruvbox** | Color scheme | Use VSCode's theme system |
+| **telescope-undo** (`<F5>`) | Undo history | Use VSCode's timeline |
 
 
 ### VSCode Setup Required
@@ -156,10 +156,10 @@ Simply uncomment and modify the options you want to change!
 
 **Why it's great**: Full Git workflow in Neovim
 
-### 🗂 nvim-tree ([GitHub](https://github.com/nvim-tree/nvim-tree.lua))
+### nvim-tree ([GitHub](https://github.com/nvim-tree/nvim-tree.lua))
 | Keymap | Action | Description |
 |--------|--------|-------------|
-| `<F6>` | 🗂 Toggle filetree | Open/close file explorer with current file selected |
+| `<F6>` | Toggle filetree | Open/close file explorer with current file selected |
 | `g?` | Help | Show nvim-tree keymap help |
 
 **Why it's great**: Modern file explorer with git integration and visual hierarchy.
