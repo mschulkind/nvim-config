@@ -2,7 +2,7 @@
 
 This Neovim configuration supports both Lazy.nvim and vim.pack plugin managers with a unified configuration format that automatically discovers, loads, and configures plugins.
 
-## 🏗️ Architecture
+## Architecture
 
 ### Dual Plugin Manager Support
 
@@ -16,7 +16,7 @@ This configuration supports both Lazy.nvim and vim.pack plugin managers with aut
 2. **vim.pack** if available (very recent nightly build)
 3. **Lazy.nvim** as fallback
 
-> ⚠️ **Important**: vim.pack requires a **very recent nightly build** of Neovim. The system will automatically fall back to Lazy.nvim if vim.pack is not available.
+> **Important**: vim.pack requires a **very recent nightly build** of Neovim. The system will automatically fall back to Lazy.nvim if vim.pack is not available.
 
 **Manual Override:**
 ```bash
@@ -41,20 +41,20 @@ Plugins are automatically discovered by scanning the `lua/plugins/` directory:
 
 ```
 lua/plugins/
-├── telescope.lua      # Telescope configuration
-├── completion.lua     # Copilot and completion
-├── treesitter.lua     # Treesitter configuration
-├── fugitive.lua       # Git integration
-├── lualine.lua        # Status line
-├── gruvbox.lua        # Color scheme
-├── filetree.lua       # File explorer
-├── formatting.lua     # Code formatting
-├── flit.lua          # Enhanced f/t motions
-├── leap.lua          # Lightning navigation
+├── telescope.lua # Telescope configuration
+├── completion.lua # Copilot and completion
+├── treesitter.lua # Treesitter configuration
+├── fugitive.lua # Git integration
+├── lualine.lua # Status line
+├── gruvbox.lua # Color scheme
+├── filetree.lua # File explorer
+├── formatting.lua # Code formatting
+├── flit.lua # Enhanced f/t motions
+├── leap.lua # Lightning navigation
 └── simple_plugins.lua # Multiple simple plugins
 ```
 
-## 📝 Plugin Configuration Format
+## Plugin Configuration Format
 
 ### Single Plugin File
 
@@ -62,21 +62,21 @@ Each plugin file returns a Lazy.nvim-compatible configuration table:
 
 ```lua
 return {
-  {
-    "user/repo",                -- Plugin repository (required)
-    cond = function()            -- Conditional loading (optional)
-      return vim.g.vscode ~= 1  -- Only load when not in VSCode
-    end,
-    config = function()          -- Configuration function (optional)
-      -- Plugin configuration code
-    end,
-    keys = {                     -- Keymaps (optional)
-      { "n", "<leader>f", ":Telescope find_files<CR>" }
-    },
-    dependencies = {             -- Dependencies (optional)
-      "plenary.nvim"
-    }
-  }
+ {
+ "user/repo", -- Plugin repository (required)
+ cond = function() -- Conditional loading (optional)
+ return vim.g.vscode ~= 1 -- Only load when not in VSCode
+ end,
+ config = function() -- Configuration function (optional)
+-- Plugin configuration code
+ end,
+ keys = { -- Keymaps (optional)
+ { "n", "<leader>f", ":Telescope find_files<CR>" }
+ },
+ dependencies = { -- Dependencies (optional)
+ "plenary.nvim"
+ }
+ }
 }
 ```
 
@@ -86,29 +86,29 @@ For simple plugins, you can define multiple plugins in one file:
 
 ```lua
 return {
-  plugins = {
-    plugin1 = {
-      repo = "user/plugin1",
-      setup = function() end
-    },
-    plugin2 = {
-      repo = "user/plugin2",
-      vscode = false
-    }
-  }
+ plugins = {
+ plugin1 = {
+ repo = "user/plugin1",
+ setup = function() end
+ },
+ plugin2 = {
+ repo = "user/plugin2",
+ vscode = false
+ }
+ }
 }
 ```
 
-## 🔧 Configuration Options
+## Configuration Options
 
 ### Required Options
 
 #### `repo` (string)
 The plugin repository URL or short name:
 ```lua
-repo = "nvim-telescope/telescope.nvim"  -- Full GitHub repo
-repo = "telescope.nvim"                 -- Short name (assumes GitHub)
-repo = "https://gitlab.com/user/repo"   -- Full URL
+repo = "nvim-telescope/telescope.nvim" -- Full GitHub repo
+repo = "telescope.nvim" -- Short name (assumes GitHub)
+repo = "https://gitlab.com/user/repo" -- Full URL
 ```
 
 ### Optional Options
@@ -116,17 +116,17 @@ repo = "https://gitlab.com/user/repo"   -- Full URL
 #### `vscode` (boolean)
 Whether the plugin should load in VSCode mode:
 ```lua
-vscode = true   -- Load in both modes (default)
-vscode = false  -- Disable in VSCode mode
+vscode = true -- Load in both modes (default)
+vscode = false -- Disable in VSCode mode
 ```
 
 #### `setup` (function)
 Plugin configuration function:
 ```lua
 setup = function()
-  require("telescope").setup({
-    -- Configuration options
-  })
+ require("telescope").setup({
+-- Configuration options
+ })
 end
 ```
 
@@ -134,8 +134,8 @@ end
 Keymaps for the plugin:
 ```lua
 keys = {
-  { "n", "<leader>f", ":Telescope find_files<CR>", { desc = "Find files" } },
-  { "n", "<leader>g", ":Telescope live_grep<CR>", { desc = "Live grep" } }
+ { "n", "<leader>f", ":Telescope find_files<CR>", { desc = "Find files" } },
+ { "n", "<leader>g", ":Telescope live_grep<CR>", { desc = "Live grep" } }
 }
 ```
 
@@ -143,12 +143,12 @@ keys = {
 Plugin dependencies:
 ```lua
 dependencies = {
-  "plenary.nvim",
-  "nvim-web-devicons"
+ "plenary.nvim",
+ "nvim-web-devicons"
 }
 ```
 
-## ★ Plugin Loading Process
+## Plugin Loading Process
 
 ### 1. Discovery Phase
 - Scan `lua/plugins/` directory
@@ -171,7 +171,7 @@ dependencies = {
 - Apply keymaps
 - Handle errors gracefully
 
-## → VSCode Compatibility
+## VSCode Compatibility
 
 ### Automatic Detection
 
@@ -179,7 +179,7 @@ The system automatically detects VSCode mode:
 
 ```lua
 local function is_vscode()
-  return vim.g.vscode == 1
+ return vim.g.vscode == 1
 end
 ```
 
@@ -190,9 +190,9 @@ Plugins are filtered based on VSCode compatibility:
 ```lua
 -- Skip plugin if it's disabled in VSCode
 if is_vscode() and plugin.vscode == false then
-  vim.notify("Skipping plugin " .. name .. " in VSCode", vim.log.levels.INFO)
+ vim.notify("Skipping plugin " .. name .. " in VSCode", vim.log.levels.INFO)
 else
-  -- Load the plugin
+-- Load the plugin
 end
 ```
 
@@ -212,12 +212,12 @@ The system automatically loads common dependencies:
 
 ```lua
 local common_deps = {
-  "plenary.nvim",        -- Common dependency for many plugins
-  "nvim-web-devicons",   -- Icons for UI plugins
+ "plenary.nvim", -- Common dependency for many plugins
+ "nvim-web-devicons", -- Icons for UI plugins
 }
 ```
 
-## 🔄 Plugin Lifecycle
+## Plugin Lifecycle
 
 ### 1. Bootstrap
 - Initialize plugin manager
@@ -244,7 +244,7 @@ local common_deps = {
 - Continue loading other plugins
 - Provide helpful error messages
 
-## 🛠️ Adding New Plugins
+## Adding New Plugins
 
 ### Method 1: Single Plugin File
 
@@ -253,16 +253,16 @@ Create a new file in `lua/plugins/`:
 ```lua
 -- lua/plugins/my_plugin.lua
 return {
-  repo = "user/my-plugin",
-  vscode = true,
-  setup = function()
-    require("my-plugin").setup({
-      -- Configuration
-    })
-  end,
-  keys = {
-    { "n", "<leader>m", ":MyCommand<CR>" }
-  }
+ repo = "user/my-plugin",
+ vscode = true,
+ setup = function()
+ require("my-plugin").setup({
+-- Configuration
+ })
+ end,
+ keys = {
+ { "n", "<leader>m", ":MyCommand<CR>" }
+ }
 }
 ```
 
@@ -272,15 +272,15 @@ Add to `lua/plugins/simple_plugins.lua`:
 
 ```lua
 return {
-  plugins = {
-    -- ... existing plugins ...
-    my_plugin = {
-      repo = "user/my-plugin",
-      setup = function()
-        require("my-plugin").setup({})
-      end
-    }
-  }
+ plugins = {
+-- ... existing plugins ...
+ my_plugin = {
+ repo = "user/my-plugin",
+ setup = function()
+ require("my-plugin").setup({})
+ end
+ }
+ }
 }
 ```
 
@@ -288,7 +288,7 @@ return {
 
 Edit an existing plugin file to add functionality.
 
-## 🔍 Debugging Plugins
+## Debugging Plugins
 
 ### Check Plugin Status
 ```vim
@@ -310,7 +310,7 @@ Edit an existing plugin file to add functionality.
 :messages
 ```
 
-## 📚 Plugin Categories
+## Plugin Categories
 
 ### Essential Plugins
 - **Telescope** - File finding and searching
@@ -333,7 +333,7 @@ Edit an existing plugin file to add functionality.
 - **Treesitter** - Syntax highlighting
 - **Language-specific plugins** - TypeScript, JSX, etc.
 
-## → Best Practices
+## Best Practices
 
 ### Plugin Configuration
 1. **Keep it simple** - Only configure what you need
@@ -351,7 +351,7 @@ Edit an existing plugin file to add functionality.
 2. **Minimize dependencies** - Only include necessary dependencies
 3. **Use efficient configurations** - Avoid expensive operations in setup
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Configuration System](configuration-system.md) - Overall architecture
 - [Essential Plugins](plugins/essential.md) - Core plugin details

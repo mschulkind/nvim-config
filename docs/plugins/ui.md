@@ -2,11 +2,11 @@
 
 This document covers the user interface plugins in this Neovim configuration.
 
-## 🎨 Status Line
+## Status Line
 
-### Lualine ✗
-**Repository**: `nvim-lualine/lualine.nvim`  
-**VSCode Compatible**: ✗ Disabled in VSCode  
+### Lualine 
+**Repository**: `nvim-lualine/lualine.nvim` 
+**VSCode Compatible**: Disabled in VSCode 
 **Purpose**: Status line with theme and information
 
 #### Features
@@ -19,9 +19,9 @@ This document covers the user interface plugins in this Neovim configuration.
 #### Configuration
 ```lua
 require('lualine').setup({
-  options = {
-    theme = 'material',
-  },
+ options = {
+ theme = 'material',
+ },
 })
 ```
 
@@ -32,9 +32,9 @@ require('lualine').setup({
 
 ## 🌈 Color Schemes
 
-### Gruvbox ✗
-**Repository**: `ellisonleao/gruvbox.nvim`  
-**VSCode Compatible**: ✗ Disabled in VSCode  
+### Gruvbox 
+**Repository**: `ellisonleao/gruvbox.nvim` 
+**VSCode Compatible**: Disabled in VSCode 
 **Purpose**: Dark color scheme with high contrast
 
 #### Features
@@ -47,28 +47,28 @@ require('lualine').setup({
 #### Configuration
 ```lua
 require("gruvbox").setup({
-  terminal_colors = true,
-  undercurl = true,
-  underline = true,
-  bold = true,
-  italic = {
-    strings = true,
-    emphasis = true,
-    comments = true,
-    operators = false,
-    folds = true,
-  },
-  strikethrough = true,
-  invert_selection = false,
-  invert_signs = false,
-  invert_tabline = false,
-  invert_intend_guides = false,
-  inverse = true,
-  contrast = "hard",
-  palette_overrides = {},
-  overrides = {},
-  dim_inactive = false,
-  transparent_mode = false,
+ terminal_colors = true,
+ undercurl = true,
+ underline = true,
+ bold = true,
+ italic = {
+ strings = true,
+ emphasis = true,
+ comments = true,
+ operators = false,
+ folds = true,
+ },
+ strikethrough = true,
+ invert_selection = false,
+ invert_signs = false,
+ invert_tabline = false,
+ invert_intend_guides = false,
+ inverse = true,
+ contrast = "hard",
+ palette_overrides = {},
+ overrides = {},
+ dim_inactive = false,
+ transparent_mode = false,
 })
 vim.cmd("colorscheme gruvbox")
 ```
@@ -77,15 +77,15 @@ vim.cmd("colorscheme gruvbox")
 - **Use VSCode's theme system** instead
 - **Install Gruvbox theme** from VSCode marketplace
 - **Recommended themes**:
-  - Gruvbox Material
-  - One Dark Pro
-  - Monokai Pro
+- Gruvbox Material
+- One Dark Pro
+- Monokai Pro
 
-## 📁 File Explorer
+## File Explorer
 
-### nvim-tree ✗
-**Repository**: `nvim-tree/nvim-tree.lua`  
-**VSCode Compatible**: ✗ Disabled in VSCode  
+### nvim-tree 
+**Repository**: `nvim-tree/nvim-tree.lua` 
+**VSCode Compatible**: Disabled in VSCode 
 **Purpose**: Modern file explorer and project navigation
 
 #### Features
@@ -105,17 +105,17 @@ vim.cmd("colorscheme gruvbox")
 #### Configuration
 ```lua
 require("nvim-tree").setup({
-  view = {
-    width = 30,  -- Set tree width to 30 columns
-  },
-  renderer = {
-    indent_markers = {
-      enable = true,  -- Show indent markers for better visual hierarchy
-    },
-  },
-  filters = {
-    dotfiles = false,  -- Show hidden files (dotfiles)
-  },
+ view = {
+ width = 30, -- Set tree width to 30 columns
+ },
+ renderer = {
+ indent_markers = {
+ enable = true, -- Show indent markers for better visual hierarchy
+ },
+ },
+ filters = {
+ dotfiles = false, -- Show hidden files (dotfiles)
+ },
 })
 ```
 
@@ -124,11 +124,11 @@ require("nvim-tree").setup({
 - **Keymap**: Ctrl+Shift+E to open file explorer
 - **Features**: Integrated with VSCode's workspace
 
-## 🔄 Undo History
+## Undo History
 
-### telescope-undo ✗
-**Repository**: `debugloop/telescope-undo.nvim`  
-**VSCode Compatible**: ✗ Disabled in VSCode  
+### telescope-undo 
+**Repository**: `debugloop/telescope-undo.nvim` 
+**VSCode Compatible**: Disabled in VSCode 
 **Purpose**: Searchable undo history with telescope integration
 
 #### Features
@@ -150,14 +150,14 @@ require("telescope").load_extension("undo")
 
 #### VSCode Alternative
 - **Use VSCode's timeline** instead
-- **Keymap**: Ctrl+Shift+P → "Timeline"
+- **Keymap**: Ctrl+Shift+P "Timeline"
 - **Features**: Integrated with VSCode's history system
 
-## → Indentation Guides
+## Indentation Guides
 
-### Indent Blankline ✓
-**Repository**: `lukas-reineke/indent-blankline.nvim`  
-**VSCode Compatible**: ✓ Works in both modes  
+### Indent Blankline 
+**Repository**: `lukas-reineke/indent-blankline.nvim` 
+**VSCode Compatible**: Works in both modes 
 **Purpose**: Visual indentation indicators
 
 #### Features
@@ -169,24 +169,24 @@ require("telescope").load_extension("undo")
 #### Configuration
 ```lua
 require("ibl").setup({
-  indent = {
-    char = "│",
-    tab_char = "│",
-  },
-  scope = {
-    enabled = true,
-    char = "│",
-    show_start = true,
-    show_end = true,
-  },
+ indent = {
+ char = "│",
+ tab_char = "│",
+ },
+ scope = {
+ enabled = true,
+ char = "│",
+ show_start = true,
+ show_end = true,
+ },
 })
 ```
 
-## → Enhanced Motions
+## Enhanced Motions
 
-### Flit.nvim ✓
-**Repository**: `ggandor/flit.nvim`  
-**VSCode Compatible**: ✓ Works in both modes  
+### Flit.nvim 
+**Repository**: `ggandor/flit.nvim` 
+**VSCode Compatible**: Works in both modes 
 **Purpose**: Enhanced f, F, t, T motions with labeled targets
 
 #### Features
@@ -206,28 +206,28 @@ require("ibl").setup({
 #### Configuration
 ```lua
 require("flit").setup({
-  keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-  labeled_modes = "nv",  -- Enable labeled targets in normal and visual modes
-  clever_repeat = true,
-  multiline = true,
-  opts = {}
+ keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+ labeled_modes = "nv", -- Enable labeled targets in normal and visual modes
+ clever_repeat = true,
+ multiline = true,
+ opts = {}
 })
 ```
 
 #### Getting Started with Flit
 1. **Basic motions**: Press `f` + character to jump forward, `F` + character to jump backward
-   - **Visual guide appears** with labeled targets (e.g., `a`, `s`, `d`, `f`)
-   - **Press the label** to jump to that specific occurrence
+- **Visual guide appears** with labeled targets (e.g., `a`, `s`, `d`, `f`)
+- **Press the label** to jump to that specific occurrence
 2. **Till motions**: Press `t` + character to jump just before forward, `T` + character for backward
 3. **Visual mode**: Press `V` then `f`/`F` to extend selection to a character
 4. **Repeat**: Use `;` to repeat last motion, `,` to repeat in opposite direction
 5. **Multiline**: Works across line boundaries for better navigation
 
-## 🔧 Window Management
+## Window Management
 
-### SwayConfig ✗
-**Repository**: `jamespeapen/swayconfig.vim`  
-**VSCode Compatible**: ✗ Disabled in VSCode  
+### SwayConfig 
+**Repository**: `jamespeapen/swayconfig.vim` 
+**VSCode Compatible**: Disabled in VSCode 
 **Purpose**: Sway window manager integration
 
 #### Features
@@ -239,11 +239,11 @@ require("flit").setup({
 - **Not applicable** - VSCode handles window management
 - **Use VSCode's window features** instead
 
-## 📊 File Type Icons
+## File Type Icons
 
-### Web Devicons ✓
-**Repository**: `nvim-tree/nvim-web-devicons`  
-**VSCode Compatible**: ✓ Works in both modes  
+### Web Devicons 
+**Repository**: `nvim-tree/nvim-web-devicons` 
+**VSCode Compatible**: Works in both modes 
 **Purpose**: File type icons for better visual identification
 
 #### Features
@@ -255,36 +255,36 @@ require("flit").setup({
 #### Configuration
 ```lua
 require("nvim-web-devicons").setup({
-  override = {},
-  default = true,
+ override = {},
+ default = true,
 })
 ```
 
-## → UI Plugin Categories
+## UI Plugin Categories
 
-### VSCode-Compatible UI Plugins ✓
+### VSCode-Compatible UI Plugins 
 - **Indent Blankline** - Indentation guides
 - **Flip.nvim** - Smooth scrolling
 - **Web Devicons** - File type icons
 
-### VSCode-Disabled UI Plugins ✗
+### VSCode-Disabled UI Plugins 
 - **Lualine** - Status line
 - **Gruvbox** - Color scheme
 - **nvim-tree** - File explorer
 - **telescope-undo** - Undo history
 - **SwayConfig** - Window manager integration
 
-## 🎨 Customizing UI Plugins
+## Customizing UI Plugins
 
 ### Adding Custom Themes
 ```lua
 -- Create lua/plugins/my_theme.lua
 return {
-  repo = "user/my-theme",
-  vscode = false,
-  setup = function()
-    vim.cmd("colorscheme my-theme")
-  end
+ repo = "user/my-theme",
+ vscode = false,
+ setup = function()
+ vim.cmd("colorscheme my-theme")
+ end
 }
 ```
 
@@ -292,17 +292,17 @@ return {
 ```lua
 -- Modify lua/plugins/lualine.lua
 require("lualine").setup({
-  options = {
-    theme = "my-theme",
-  },
-  sections = {
-    lualine_a = { "mode" },
-    lualine_b = { "branch", "diff" },
-    lualine_c = { "filename" },
-    lualine_x = { "encoding", "filetype" },
-    lualine_y = { "progress" },
-    lualine_z = { "location" },
-  },
+ options = {
+ theme = "my-theme",
+ },
+ sections = {
+ lualine_a = { "mode" },
+ lualine_b = { "branch", "diff" },
+ lualine_c = { "filename" },
+ lualine_x = { "encoding", "filetype" },
+ lualine_y = { "progress" },
+ lualine_z = { "location" },
+ },
 })
 ```
 
@@ -310,20 +310,20 @@ require("lualine").setup({
 ```lua
 -- Modify lua/plugins/indent_blankline.lua
 require("ibl").setup({
-  indent = {
-    char = "▏",
-    tab_char = "▏",
-  },
-  scope = {
-    enabled = true,
-    char = "▏",
-    show_start = true,
-    show_end = true,
-  },
+ indent = {
+ char = "▏",
+ tab_char = "▏",
+ },
+ scope = {
+ enabled = true,
+ char = "▏",
+ show_start = true,
+ show_end = true,
+ },
 })
 ```
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Essential Plugins](essential.md) - Core functionality plugins
 - [VSCode Integration](../vscode-integration.md) - VSCode-specific considerations

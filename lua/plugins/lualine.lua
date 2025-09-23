@@ -16,11 +16,6 @@ return {
     },
     config = function()
       require('lualine').setup({
-        -- options = { theme = 'auto' },  -- Custom theme
-        -- sections = { lualine_a = { 'mode' } },  -- Custom sections
-        -- options = { component_separators = { left = '|', right = '|' } },  -- Custom separators
-        -- options = { section_separators = { left = '', right = '' } },  -- Custom section separators
-        -- options = { disabled_filetypes = {} },  -- Disable for specific filetypes
         
         options = {
           theme = 'material',

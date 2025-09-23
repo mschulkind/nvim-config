@@ -2,27 +2,27 @@
 
 This Neovim configuration uses a modern, modular architecture designed for maintainability and performance.
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```
 config/nvim/
-├── init.lua                 # Main entry point
+├── init.lua # Main entry point
 ├── lua/
-│   ├── core/               # Core Neovim settings
-│   │   ├── settings.lua    # Basic settings
-│   │   ├── keymaps.lua     # Global keymaps
-│   │   ├── autocmds.lua    # Auto commands
-│   │   └── clipboard.lua   # Clipboard integration
-│   ├── plugins/            # Plugin configurations
-│   │   ├── init.lua        # Plugin manager
-│   │   └── *.lua           # Individual plugin files
-│   ├── lib/                # Utility libraries
-│   │   └── plugin_manager/ # Plugin management system
-│   └── utils/              # Helper utilities
-└── docs/                   # Documentation
+│ ├── core/ # Core Neovim settings
+│ │ ├── settings.lua # Basic settings
+│ │ ├── keymaps.lua # Global keymaps
+│ │ ├── autocmds.lua # Auto commands
+│ │ └── clipboard.lua # Clipboard integration
+│ ├── plugins/ # Plugin configurations
+│ │ ├── init.lua # Plugin manager
+│ │ └── *.lua # Individual plugin files
+│ ├── lib/ # Utility libraries
+│ │ └── plugin_manager/ # Plugin management system
+│ └── utils/ # Helper utilities
+└── docs/ # Documentation
 ```
 
-## 🔧 Core Components
+## Core Components
 
 ### Main Entry Point (`init.lua`)
 
@@ -68,7 +68,7 @@ Global keymaps that work across all modes:
 
 The plugin system uses a data-driven approach where each plugin is defined as a configuration table.
 
-## 🔌 Plugin Management
+## Plugin Management
 
 ### Plugin Manager (`lua/lib/plugin_manager/`)
 
@@ -85,17 +85,17 @@ Each plugin file returns a configuration table:
 
 ```lua
 return {
-  repo = "user/repo",           -- Plugin repository
-  vscode = true,                -- Whether to load in VSCode (optional)
-  setup = function()            -- Setup function (optional)
-    -- Plugin configuration
-  end,
-  keys = {                      -- Keymaps (optional)
-    { "n", "<leader>f", ":Telescope find_files<CR>" }
-  },
-  dependencies = {              -- Dependencies (optional)
-    "plenary.nvim"
-  }
+ repo = "user/repo", -- Plugin repository
+ vscode = true, -- Whether to load in VSCode (optional)
+ setup = function() -- Setup function (optional)
+-- Plugin configuration
+ end,
+ keys = { -- Keymaps (optional)
+ { "n", "<leader>f", ":Telescope find_files<CR>" }
+ },
+ dependencies = { -- Dependencies (optional)
+ "plenary.nvim"
+ }
 }
 ```
 
@@ -105,13 +105,13 @@ The system automatically detects VSCode mode and disables conflicting plugins:
 
 ```lua
 local function is_vscode()
-  return vim.g.vscode == 1
+ return vim.g.vscode == 1
 end
 ```
 
 Plugins with `vscode = false` are skipped in VSCode mode.
 
-## ⚡ Performance Features
+## Performance Features
 
 ### Autoloading (`vim.loader.enable()`)
 
@@ -135,7 +135,7 @@ Plugins are loaded only when needed:
 - **Efficient redraws**: `vim.o.lazyredraw = true`
 - **Smart completion**: `vim.o.completeopt = "menu,menuone,noselect"`
 
-## → Design Principles
+## Design Principles
 
 ### 1. Modularity
 - Each component has a single responsibility
@@ -157,7 +157,7 @@ Plugins are loaded only when needed:
 - Consistent patterns
 - Easy to extend
 
-## 🔄 Loading Order
+## Loading Order
 
 1. **Core settings** - Basic Neovim configuration
 2. **Auto commands** - Event handlers
@@ -168,7 +168,7 @@ Plugins are loaded only when needed:
 
 This order ensures dependencies are available when needed.
 
-## 🛠️ Customization Points
+## Customization Points
 
 ### Adding New Plugins
 
@@ -209,7 +209,7 @@ Place utility functions in `lua/utils/` and call them from `init.lua`.
 :lua require("lib.plugin_manager.plugin_manager").plugins
 ```
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Plugin System](plugin-system.md) - Detailed plugin management
 - [Customization Guide](customization.md) - How to modify the config

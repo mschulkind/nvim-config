@@ -5,8 +5,8 @@ This directory contains shared library modules used across the Neovim configurat
 ## Structure
 
 - `plugin_manager/` - Plugin management system for loading and configuring plugins
-  - `plugin_manager.lua` - Main plugin manager with auto-discovery and installation
-  - `auto_loader.lua` - Automatic plugin file discovery and loading
+- `plugin_manager.lua` - Main plugin manager with auto-discovery and installation
+- `auto_loader.lua` - Automatic plugin file discovery and loading
 
 ## Usage
 

@@ -11,11 +11,6 @@ return {
     config = function()
       local conform = require("conform")
       conform.setup({
-        -- format_on_save = { timeout_ms = 500 },  -- Increase timeout
-        -- log_level = vim.log.levels.WARN,  -- Enable debug logging
-        -- formatters_by_ft = { javascript = { "prettier" } },  -- Add more formatters
-        -- format_on_save = { lsp_format = "fallback" },  -- Prefer LSP formatting
-        -- formatters = { prettier = { args = { "--single-quote" } } },  -- Custom formatter args
         
         formatters_by_ft = {
           lua = { "stylua" },

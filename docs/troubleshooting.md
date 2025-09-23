@@ -13,16 +13,16 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 **Solutions**:
 1. **Switch to Lazy.nvim** (recommended):
-   ```lua
-   -- In init.lua, change:
-   local PLUGIN_MANAGER = "lazy"  -- Use Lazy.nvim instead
-   ```
+ ```lua
+-- In init.lua, change:
+ local PLUGIN_MANAGER = "lazy" -- Use Lazy.nvim instead
+ ```
 
 2. **Update Neovim** (if you must use vim.pack):
-   ```bash
-   # Install latest nightly build
-   # See docs/install.md for OS-specific instructions
-   ```
+ ```bash
+ # Install latest nightly build
+ # See docs/install.md for OS-specific instructions
+ ```
 
 ### Plugin Loading Issues
 
@@ -31,24 +31,24 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 **Solutions**:
 1. **Check plugin status**:
-   ```vim
-   :checkhealth
-   ```
+ ```vim
+ :checkhealth
+ ```
 
 2. **View error messages**:
-   ```vim
-   :messages
-   ```
+ ```vim
+ :messages
+ ```
 
 3. **Reload configuration**:
-   ```vim
-   :source %
-   ```
+ ```vim
+ :source %
+ ```
 
 4. **Check VSCode mode**:
-   ```lua
-   :lua print(require("lib.plugin_manager.plugin_manager").is_vscode())
-   ```
+ ```lua
+ :lua print(require("lib.plugin_manager.plugin_manager").is_vscode())
+ ```
 
 #### VSCode Plugin Conflicts
 **Symptoms**: Plugins disabled in VSCode with notifications
@@ -65,37 +65,37 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 **Solutions**:
 1. **Check plugin count**:
-   ```lua
-   :lua print(vim.inspect(require("lib.plugin_manager.plugin_manager").plugins))
-   ```
+ ```lua
+ :lua print(vim.inspect(require("lib.plugin_manager.plugin_manager").plugins))
+ ```
 
 2. **Disable unnecessary plugins** by setting `vscode = false`
 
 3. **Use lazy loading** for heavy plugins
 
 4. **Check system resources**:
-   ```bash
-   htop
-   ```
+ ```bash
+ htop
+ ```
 
 #### Motion Issues
 **Symptoms**: f/t motions not working or behaving unexpectedly
 
 **Solutions**:
 1. **Check Flit.nvim settings**:
-   ```lua
-   :lua print(vim.inspect(require("flit")))
-   ```
+ ```lua
+ :lua print(vim.inspect(require("flit")))
+ ```
 
 2. **Check Leap dependency**:
-   ```lua
-   :lua print(vim.inspect(require("leap")))
-   ```
+ ```lua
+ :lua print(vim.inspect(require("leap")))
+ ```
 
 3. **Disable Flit.nvim** temporarily:
-   ```lua
-   -- Comment out flit.nvim in plugin configuration
-   ```
+ ```lua
+-- Comment out flit.nvim in plugin configuration
+ ```
 
 ### Keymap Issues
 
@@ -104,33 +104,33 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 **Solutions**:
 1. **Check keymap conflicts**:
-   ```vim
-   :verbose map <leader>f
-   ```
+ ```vim
+ :verbose map <leader>f
+ ```
 
 2. **Verify leader key**:
-   ```vim
-   :echo mapleader
-   ```
+ ```vim
+ :echo mapleader
+ ```
 
 3. **Check mode** - ensure you're in the correct mode (normal, insert, visual)
 
 4. **Reload keymaps**:
-   ```vim
-   :source ~/.config/nvim/lua/core/keymaps.lua
-   ```
+ ```vim
+ :source ~/.config/nvim/lua/core/keymaps.lua
+ ```
 
 #### VSCode Keymap Conflicts
 **Symptoms**: Keymaps work in standalone Neovim but not in VSCode
 
 **Solutions**:
 1. **Check VSCode extension settings**:
-   ```json
-   {
-     "vscode-neovim.useCtrlKeysForInsertMode": true,
-     "vscode-neovim.useCtrlKeysForNormalMode": true
-   }
-   ```
+ ```json
+ {
+ "vscode-neovim.useCtrlKeysForInsertMode": true,
+ "vscode-neovim.useCtrlKeysForNormalMode": true
+ }
+ ```
 
 2. **Use VSCode's command palette** for complex operations
 
@@ -143,24 +143,24 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 **Solutions**:
 1. **Check Git installation**:
-   ```bash
-   git --version
-   ```
+ ```bash
+ git --version
+ ```
 
 2. **Verify repository**:
-   ```bash
-   git status
-   ```
+ ```bash
+ git status
+ ```
 
 3. **Check Fugitive status**:
-   ```vim
-   :Git status
-   ```
+ ```vim
+ :Git status
+ ```
 
 4. **Reload Fugitive**:
-   ```vim
-   :packadd fugitive
-   ```
+ ```vim
+ :packadd fugitive
+ ```
 
 ### LSP Issues
 
@@ -169,25 +169,25 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 **Solutions**:
 1. **Check LSP status**:
-   ```vim
-   :LspInfo
-   ```
+ ```vim
+ :LspInfo
+ ```
 
 2. **Install language server**:
-   ```bash
-   # For example, for Python
-   pip install python-lsp-server
-   ```
+ ```bash
+ # For example, for Python
+ pip install python-lsp-server
+ ```
 
 3. **Check LSP configuration**:
-   ```vim
-   :lua print(vim.inspect(vim.lsp.get_active_clients()))
-   ```
+ ```vim
+ :lua print(vim.inspect(vim.lsp.get_active_clients()))
+ ```
 
 4. **Restart LSP**:
-   ```vim
-   :LspRestart
-   ```
+ ```vim
+ :LspRestart
+ ```
 
 ### Telescope Issues
 
@@ -196,35 +196,35 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 **Solutions**:
 1. **Check ripgrep installation**:
-   ```bash
-   rg --version
-   ```
+ ```bash
+ rg --version
+ ```
 
 2. **Install ripgrep**:
-   ```bash
-   # Ubuntu/Debian
-   sudo apt install ripgrep
-   
-   # Arch Linux
-   sudo pacman -S ripgrep
-   
-   # macOS
-   brew install ripgrep
-   ```
+ ```bash
+ # Ubuntu/Debian
+ sudo apt install ripgrep
+ 
+ # Arch Linux
+ sudo pacman -S ripgrep
+ 
+ # macOS
+ brew install ripgrep
+ ```
 
 3. **Check Telescope configuration**:
-   ```lua
-   :lua print(vim.inspect(require("telescope")))
-   ```
+ ```lua
+ :lua print(vim.inspect(require("telescope")))
+ ```
 
 4. **Test with different pickers**:
-   ```vim
-   :Telescope find_files
-   :Telescope buffers
-   :Telescope help_tags
-   ```
+ ```vim
+ :Telescope find_files
+ :Telescope buffers
+ :Telescope help_tags
+ ```
 
-## 🔧 Debugging Commands
+## Debugging Commands
 
 ### Check System Status
 ```vim
@@ -268,7 +268,7 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 :lua require("profile").start()
 ```
 
-## 🛠️ Advanced Troubleshooting
+## Advanced Troubleshooting
 
 ### Plugin System Debugging
 
@@ -330,7 +330,7 @@ nvim --startuptime startup.log
 :lua require("profile").start()
 ```
 
-## 🆘 Getting Help
+## Getting Help
 
 ### Check Logs
 ```vim
@@ -348,15 +348,15 @@ nvim --startuptime startup.log
 
 #### Reset Configuration
 1. **Backup current config**:
-   ```bash
-   cp -r ~/.config/nvim ~/.config/nvim.backup
-   ```
+ ```bash
+ cp -r ~/.config/nvim ~/.config/nvim.backup
+ ```
 
 2. **Reset to default**:
-   ```bash
-   rm -rf ~/.config/nvim
-   git clone <your-config-repo> ~/.config/nvim
-   ```
+ ```bash
+ rm -rf ~/.config/nvim
+ git clone <your-config-repo> ~/.config/nvim
+ ```
 
 3. **Restart Neovim**
 
@@ -376,7 +376,7 @@ nvim --startuptime startup.log
 - **VSCode Extension**: https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim
 - **Community**: https://www.reddit.com/r/neovim/
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Configuration System](configuration-system.md) - Understanding the architecture
 - [Plugin System](plugin-system.md) - How plugins are managed

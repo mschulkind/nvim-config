@@ -9,13 +9,13 @@ This is a streamlined plugin system - plugin files return configuration tables t
 ```lua
 -- plugins/my-plugin.lua
 return {
-  repo = "username/plugin-name",
-  setup = function()
-    require("plugin-name").setup({
-      option1 = true,
-      option2 = "value",
-    })
-  end,
+ repo = "username/plugin-name",
+ setup = function()
+ require("plugin-name").setup({
+ option1 = true,
+ option2 = "value",
+ })
+ end,
 }
 ```
 
@@ -24,21 +24,21 @@ return {
 ```lua
 -- plugins/multiple-plugins.lua
 return {
-  plugins = {
-    plugin1 = {
-      repo = "username/plugin1",
-      setup = function()
-        require("plugin1").setup()
-      end,
-    },
-    
-    plugin2 = {
-      repo = "username/plugin2",
-      setup = function()
-        require("plugin2").setup()
-      end,
-    },
-  },
+ plugins = {
+ plugin1 = {
+ repo = "username/plugin1",
+ setup = function()
+ require("plugin1").setup()
+ end,
+ },
+ 
+ plugin2 = {
+ repo = "username/plugin2",
+ setup = function()
+ require("plugin2").setup()
+ end,
+ },
+ },
 }
 ```
 
@@ -56,11 +56,11 @@ Some plugins may not work well in VSCode with the Neovim extension. You can disa
 
 ```lua
 return {
-  repo = "username/plugin-name",
-  vscode = false,  -- Disable this plugin when running in VSCode
-  setup = function()
-    -- Plugin configuration
-  end,
+ repo = "username/plugin-name",
+ vscode = false, -- Disable this plugin when running in VSCode
+ setup = function()
+-- Plugin configuration
+ end,
 }
 ```
 
@@ -70,12 +70,12 @@ When `vscode = false`, the plugin will be skipped entirely when running in VSCod
 
 ```lua
 return {
-  repo = "username/plugin",
-  keys = {
-    { "<leader>k", "<cmd>PluginCommand<cr>", desc = "Plugin command" },
-    { "<leader>K", "<cmd>AnotherCommand<cr>", desc = "Another command" },
-    { "<leader>kk", "<cmd>YetAnotherCommand<cr>", mode = "v", desc = "Visual mode command" },
-  },
+ repo = "username/plugin",
+ keys = {
+ { "<leader>k", "<cmd>PluginCommand<cr>", desc = "Plugin command" },
+ { "<leader>K", "<cmd>AnotherCommand<cr>", desc = "Another command" },
+ { "<leader>kk", "<cmd>YetAnotherCommand<cr>", mode = "v", desc = "Visual mode command" },
+ },
 }
 ```
 
@@ -87,7 +87,7 @@ return {
 
 ```lua
 return {
-  repo = "username/simple-plugin",
+ repo = "username/simple-plugin",
 }
 ```
 
@@ -95,24 +95,24 @@ return {
 
 ```lua
 return {
-  repo = "username/complex-plugin",
-  setup = function()
-    require("complex-plugin").setup({
-      option1 = true,
-      option2 = "value",
-    })
-    
-    -- Custom keymaps
-    vim.keymap.set("n", "<leader>c", "<cmd>ComplexCommand<cr>", { desc = "Complex command" })
-    
-    -- Autocommands
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "python",
-      callback = function()
-        -- Plugin-specific filetype configuration
-      end,
-    })
-  end,
+ repo = "username/complex-plugin",
+ setup = function()
+ require("complex-plugin").setup({
+ option1 = true,
+ option2 = "value",
+ })
+ 
+-- Custom keymaps
+ vim.keymap.set("n", "<leader>c", "<cmd>ComplexCommand<cr>", { desc = "Complex command" })
+ 
+-- Autocommands
+ vim.api.nvim_create_autocmd("FileType", {
+ pattern = "python",
+ callback = function()
+-- Plugin-specific filetype configuration
+ end,
+ })
+ end,
 }
 ```
 
@@ -120,25 +120,25 @@ return {
 
 ```lua
 return {
-  plugins = {
-    copilot = {
-      repo = "zbirenbaum/copilot.lua",
-      setup = function()
-        require("copilot").setup({
-          suggestion = { auto_trigger = true }
-        })
-      end,
-    },
-    
-    blink_cmp = {
-      repo = "saghen/blink.cmp",
-      setup = function()
-        require("blink.cmp").setup({
-          sources = { "lsp", "path", "buffer" },
-        })
-      end,
-    },
-  },
+ plugins = {
+ copilot = {
+ repo = "zbirenbaum/copilot.lua",
+ setup = function()
+ require("copilot").setup({
+ suggestion = { auto_trigger = true }
+ })
+ end,
+ },
+ 
+ blink_cmp = {
+ repo = "saghen/blink.cmp",
+ setup = function()
+ require("blink.cmp").setup({
+ sources = { "lsp", "path", "buffer" },
+ })
+ end,
+ },
+ },
 }
 ```
 

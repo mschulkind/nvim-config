@@ -93,7 +93,29 @@ If you enabled Copilot (default in this config), authenticate once:
 If the command is not found, ensure the Copilot plugin is installed (open Neovim, wait for Lazy to finish installing, then try again).
 
 ---
+## VSCode Neovim: jj composite key
 
+If you use VSCode (or Cursor) with the Neovim extension, add the composite key mapping so "jj" acts as Escape. Edit your VSCode settings (for example [`config/Code - OSS/User/settings.json`](config/Code - OSS/User/settings.json:1) or [`config/Cursor/User/settings.json`](config/Cursor/User/settings.json:1)) and add:
+
+```json
+{
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape"
+    }
+  }
+}
+```
+
+This repository already includes that setting at the paths above; syncing or copying those settings into your VSCode user settings will enable `jj` to act as Escape when using the Neovim extension.
+
+Note: Install the VSCode Neovim extension (Marketplace ID: `asvetliakov.vscode-neovim`). Open Extensions (Ctrl+Shift+X) and search for "Neovim", or install from the command line:
+
+```bash
+code --install-extension asvetliakov.vscode-neovim
+```
+
+After installing the extension, ensure it points to your Neovim executable and init file (see [`config/Code - OSS/User/settings.json`](config/Code - OSS/User/settings.json:1) for an example).
 ## Troubleshooting
 - If plugins don’t install on first launch, run `:Lazy` and check for errors
 - Run `:checkhealth` for environment checks

@@ -9,7 +9,7 @@ This Neovim configuration supports two plugin managers with a simple configurati
 Edit `init.lua` and change this line:
 
 ```lua
-local PLUGIN_MANAGER = "lazy"  -- Change this to "vim_pack" to use vim.pack instead
+local PLUGIN_MANAGER = "lazy" -- Change this to "vim_pack" to use vim.pack instead
 ```
 
 **Options:**
@@ -34,15 +34,15 @@ All plugins use Lazy.nvim format regardless of which manager is active:
 
 ```lua
 return {
-  {
-    "author/plugin-name",
-    config = function()
-      -- Plugin configuration
-    end,
-    keys = {
-      { "<leader>key", "<cmd>Command<cr>", desc = "Description" }
-    }
-  }
+ {
+ "author/plugin-name",
+ config = function()
+-- Plugin configuration
+ end,
+ keys = {
+ { "<leader>key", "<cmd>Command<cr>", desc = "Description" }
+ }
+ }
 }
 ```
 

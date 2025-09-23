@@ -13,11 +13,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("nvim-tree").setup({
-        -- view = { width = 30 },  -- Custom tree width
-        -- renderer = { group_empty = false },  -- Group empty folders
-        -- filters = { dotfiles = false },  -- Hide hidden files
-        -- git = { enable = true },  -- Enable git integration
-        -- actions = { open_file = { quit_on_open = false } },  -- Quit on file open
         
         view = {
           width = 30,  -- Set tree width to 30 columns

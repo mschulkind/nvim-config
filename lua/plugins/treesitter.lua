@@ -13,12 +13,9 @@ return {
     },
     config = function()
       require("nvim-treesitter.configs").setup({
-        -- auto_install = false,  -- Automatically install missing parsers
-        -- ensure_installed = {},  -- Install all available parsers
-        -- textobjects = { move = { enable = true } },  -- Enable text object movements
-        -- rainbow = { enable = false },  -- Enable rainbow parentheses (requires nvim-ts-rainbow)
-        -- context_commentstring = { enable = false },  -- Enable context-aware commenting (requires nvim-ts-context-commentstring)
         
+        auto_install = true,  -- Automatically install missing parsers
+        sync_install = true,
         highlight = { enable = true },
         indent = { enable = true },
         ensure_installed = {

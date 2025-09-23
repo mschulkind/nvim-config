@@ -10,16 +10,11 @@ return {
     "zbirenbaum/copilot.lua",
     config = function()
       require("copilot").setup({
-        -- suggestion = { keymap = { accept = "<Tab>" } },  -- Custom accept key
-        -- panel = { enabled = false },  -- Enable Copilot panel
-        -- filetypes = { ["*"] = true },  -- Enable for all filetypes
-        -- server_opts_overrides = {},  -- Server options overrides
-        -- suggestion = { auto_trigger = true },  -- Enable auto-trigger
         
-        suggestion = { 
-          auto_trigger = true, 
-          keymap = { accept = "<Tab>" } 
-        } 
+        suggestion = {
+          auto_trigger = true,
+          keymap = { accept = "<Tab>" }
+        }
       })
     end,
   },

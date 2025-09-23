@@ -1,16 +1,16 @@
 # Enhanced Navigation: Flit + Leap
 
-**→ Cross-Mode Compatible**: Works in both standalone Neovim and VSCode.
+** Cross-Mode Compatible**: Works in both standalone Neovim and VSCode.
 
 This guide covers the powerful motion system provided by Flit.nvim and Leap.nvim working together.
 
-## 🔗 How They Work Together
+## How They Work Together
 
 - **Flit.nvim**: Enhances the basic `f`, `F`, `t`, `T` motions with labeled targets
 - **Leap.nvim**: Provides the underlying jump system and adds `s`, `S`, `gs` motions
 - **Together**: They create a comprehensive navigation system for precise text movement
 
-## ★ Flit.nvim - Enhanced f/t Motions
+## Flit.nvim - Enhanced f/t Motions
 
 ### Purpose
 Flit enhances Vim's basic `f`, `F`, `t`, `T` motions with:
@@ -44,13 +44,13 @@ Flit enhances Vim's basic `f`, `F`, `t`, `T` motions with:
 When you press `f` followed by a character, you'll see labeled targets appear:
 ```
 Press 'f' then 'e':
-H e l l o   w o r l d
-  ^   ^
-  a   b
+H e l l o w o r l d
+ ^ ^
+ a b
 ```
 Press `a` to jump to the first `e`, or `b` to jump to the second `e`.
 
-## ★ Leap.nvim - 2-Character Jumping
+## Leap.nvim - 2-Character Jumping
 
 ### Purpose
 Leap provides powerful 2-character jumping with:
@@ -83,13 +83,13 @@ Leap provides powerful 2-character jumping with:
 When you press `s` followed by 2 characters, you'll see labeled targets appear:
 ```
 Press 's' then 'el':
-H e l l o   w o r l d
-  ^ ^
-  a b
+H e l l o w o r l d
+ ^ ^
+ a b
 ```
 Press `a` to jump to the first `el`, or `b` to jump to the second `el`.
 
-## → When to Use Which
+## When to Use Which
 
 ### Use Flit (f/t motions) when:
 - You want to jump to a **single character**
@@ -103,28 +103,28 @@ Press `a` to jump to the first `el`, or `b` to jump to the second `el`.
 - You want to see **all possible targets** at once
 - You're working with **longer text** or **complex layouts**
 
-## ⚙ Configuration
+## Configuration
 
 ### Flit Configuration
 ```lua
 require("flit").setup({
-  labeled_modes = "nv",  -- Enable labels in normal and visual modes
-  clever_repeat = true,  -- Enable clever repeat behavior
-  multiline = true,      -- Enable multiline support
-  keys = { f = 'f', F = 'F', t = 't', T = 'T' },  -- Key mappings
+ labeled_modes = "nv", -- Enable labels in normal and visual modes
+ clever_repeat = true, -- Enable clever repeat behavior
+ multiline = true, -- Enable multiline support
+ keys = { f = 'f', F = 'F', t = 't', T = 'T' }, -- Key mappings
 })
 ```
 
 ### Leap Configuration
 ```lua
 require("leap").setup({
-  case_sensitive = false,  -- Case insensitive search
-  safe_labels = { "f", "d", "s", "j", "k", "l", "h", "o", "w", "e", "b", "u", "y", "v", "r", "g", "t", "c", "x", "z", "a", "q", "p", "n", "m" },
-  labels = { "f", "d", "s", "j", "k", "l", "h", "o", "w", "e", "b", "u", "y", "v", "r", "g", "t", "c", "x", "z", "a", "q", "p", "n", "m" },
+ case_sensitive = false, -- Case insensitive search
+ safe_labels = { "f", "d", "s", "j", "k", "l", "h", "o", "w", "e", "b", "u", "y", "v", "r", "g", "t", "c", "x", "z", "a", "q", "p", "n", "m" },
+ labels = { "f", "d", "s", "j", "k", "l", "h", "o", "w", "e", "b", "u", "y", "v", "r", "g", "t", "c", "x", "z", "a", "q", "p", "n", "m" },
 })
 ```
 
-## 🔧 Advanced Tips
+## Advanced Tips
 
 ### Combining Motions
 - Use **Flit** for precise single-character positioning
@@ -141,7 +141,7 @@ require("leap").setup({
 - **Leap** is more powerful for complex navigation
 - Use **multiline = false** in Flit if you only work within lines
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 - **Labels not appearing**: Check that `labeled_modes` includes the mode you're in
@@ -155,7 +155,7 @@ require("leap").setup({
 :checkhealth
 ```
 
-## 📚 Further Reading
+## Further Reading
 
 - [Flit.nvim GitHub](https://github.com/ggandor/flit.nvim)
 - [Leap.nvim GitHub](https://github.com/ggandor/leap.nvim)
@@ -164,4 +164,4 @@ require("leap").setup({
 
 ---
 
-**Happy navigating!** ★✨
+**Happy navigating!** ✨

@@ -4,7 +4,7 @@ This Neovim configuration is designed to work seamlessly in both standalone Neov
 
 > **Note**: This also applies to Cursor IDE, which uses the same VSCode Neovim extension.
 
-## → Overview
+## Overview
 
 The configuration automatically detects when running in VSCode and adapts accordingly:
 
@@ -13,19 +13,19 @@ The configuration automatically detects when running in VSCode and adapts accord
 - **Optimizes** performance for the VSCode environment
 - **Maintains** full functionality where possible
 
-## 🔍 VSCode Detection
+## VSCode Detection
 
 The system detects VSCode mode using:
 
 ```lua
 local function is_vscode()
-  return vim.g.vscode == 1
+ return vim.g.vscode == 1
 end
 ```
 
 This is automatically set by the VSCode Neovim extension.
 
-## ⚙ Required Configuration
+## Required Configuration
 
 ### Composite Key Sequences
 
@@ -36,11 +36,11 @@ The `jj` escape keybinding requires VSCode/Cursor-specific configuration to work
 
 ```json
 {
-  "vscode-neovim.compositeKeys": {
-    "jj": {
-      "command": "vscode-neovim.escape"
-    }
-  }
+ "vscode-neovim.compositeKeys": {
+ "jj": {
+ "command": "vscode-neovim.escape"
+ }
+ }
 }
 ```
 
@@ -56,7 +56,7 @@ VSCode's Neovim extension handles composite key sequences differently than stand
 - Some other composite keys may not function as expected
 
 
-## ✓ Features That Work in VSCode
+## Features That Work in VSCode
 
 ### Core Functionality
 - **Telescope** - File finding and searching
@@ -79,37 +79,37 @@ VSCode's Neovim extension handles composite key sequences differently than stand
 - **Diagnostics**: Error highlighting and navigation
 - **Code actions**: Available through VSCode's command palette
 
-## ✗ Features Disabled in VSCode
+## Features Disabled in VSCode
 
 ### UI Plugins (Use VSCode's Native Features Instead)
 
-#### NerdTree ✗
+#### NerdTree 
 - **Disabled because**: Conflicts with VSCode's file explorer
 - **VSCode alternative**: Use VSCode's file explorer (Ctrl+Shift+E)
 - **Keymap**: `<F6>` is disabled
 
-#### Lualine ✗
+#### Lualine 
 - **Disabled because**: Conflicts with VSCode's status bar
 - **VSCode alternative**: Use VSCode's status bar
 - **Features**: File info, Git status, etc. are shown in VSCode's status bar
 
-#### Gruvbox ✗
+#### Gruvbox 
 - **Disabled because**: Conflicts with VSCode's theme system
 - **VSCode alternative**: Use VSCode's theme system
 - **Note**: You can still use VSCode themes that mimic Gruvbox
 
 ### Utility Plugins
 
-#### Mundo ✗
+#### Mundo 
 - **Disabled because**: Conflicts with VSCode's timeline feature
-- **VSCode alternative**: Use VSCode's timeline (Ctrl+Shift+P → "Timeline")
+- **VSCode alternative**: Use VSCode's timeline (Ctrl+Shift+P "Timeline")
 - **Keymap**: `<F5>` is disabled
 
-#### SwayConfig ✗
+#### SwayConfig 
 - **Disabled because**: Not relevant in VSCode environment
 - **Note**: This is a window manager integration plugin
 
-## 🔧 VSCode-Specific Optimizations
+## VSCode-Specific Optimizations
 
 ### Performance Optimizations
 - **Reduced plugin loading** - Only loads compatible plugins
@@ -122,7 +122,7 @@ VSCode's Neovim extension handles composite key sequences differently than stand
 - **Theme integration** - Uses VSCode's theme system
 - **Command palette integration** - Works with VSCode's command palette
 
-## ★ Getting Started in VSCode
+## Getting Started in VSCode
 
 ### 1. Install the Neovim Extension
 1. Open VSCode
@@ -135,8 +135,8 @@ Add to your VSCode settings:
 
 ```json
 {
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/username/.config/nvim/init.lua"
+ "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+ "vscode-neovim.neovimInitVimPaths.linux": "/home/username/.config/nvim/init.lua"
 }
 ```
 
@@ -158,7 +158,7 @@ Start with these keymaps that work in both modes:
 - **Status information**: Use VSCode's status bar
 - **Theming**: Use VSCode's theme system
 
-## 🎨 VSCode Theme Recommendations
+## VSCode Theme Recommendations
 
 Since Gruvbox is disabled in VSCode, consider these alternatives:
 
@@ -173,7 +173,7 @@ Since Gruvbox is disabled in VSCode, consider these alternatives:
 3. Search for theme name
 4. Install and activate
 
-## 🔄 Switching Between Modes
+## Switching Between Modes
 
 ### From VSCode to Standalone Neovim
 - **File explorer**: Use NerdTree (`<F6>`)
@@ -194,7 +194,7 @@ Since Gruvbox is disabled in VSCode, consider these alternatives:
 #### Keymaps Not Working
 - **Check extension**: Ensure Neovim extension is installed and enabled
 - **Check configuration**: Verify the extension is pointing to the correct config
-- **Reload window**: Try reloading VSCode window (Ctrl+Shift+P → "Developer: Reload Window")
+- **Reload window**: Try reloading VSCode window (Ctrl+Shift+P "Developer: Reload Window")
 
 #### Performance Issues
 - **Check plugin loading**: Look for VSCode compatibility notifications
@@ -221,7 +221,7 @@ Since Gruvbox is disabled in VSCode, consider these alternatives:
 :source %
 ```
 
-## 📚 VSCode Extension Integration
+## VSCode Extension Integration
 
 ### Recommended VSCode Extensions
 - **Neovim** - Official Neovim extension
@@ -232,14 +232,14 @@ Since Gruvbox is disabled in VSCode, consider these alternatives:
 ### Extension Settings
 ```json
 {
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/username/.config/nvim/init.lua",
-  "vscode-neovim.useCtrlKeysForInsertMode": true,
-  "vscode-neovim.useCtrlKeysForNormalMode": true
+ "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+ "vscode-neovim.neovimInitVimPaths.linux": "/home/username/.config/nvim/init.lua",
+ "vscode-neovim.useCtrlKeysForInsertMode": true,
+ "vscode-neovim.useCtrlKeysForNormalMode": true
 }
 ```
 
-## → Best Practices for VSCode Users
+## Best Practices for VSCode Users
 
 ### 1. Use VSCode's Native Features
 - **File explorer**: Use VSCode's file explorer instead of NerdTree
@@ -264,7 +264,7 @@ Focus on keymaps that work in both modes:
 - **Use VSCode's built-in features** when possible
 - **Monitor plugin loading** for performance issues
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Configuration System](configuration-system.md) - How VSCode detection works
 - [Plugin System](plugin-system.md) - Plugin filtering in VSCode

@@ -2,7 +2,7 @@
 
 This directory contains comprehensive documentation for the Neovim configuration. The [README.md](../README.md) provides a quick start, while these docs offer detailed information for advanced users.
 
-## 📚 Documentation Index
+## Documentation Index
 
 ### Core Configuration
 - **[Configuration System](configuration-system.md)** - How the plugin system and configuration works
@@ -28,7 +28,7 @@ This directory contains comprehensive documentation for the Neovim configuration
 - **[Plugin Development](plugin-development.md)** - How to add new plugins
 - **[Contributing](contributing.md)** - Guidelines for contributing to this config
 
-## ★ Quick Navigation
+## Quick Navigation
 
 ### For Beginners
 Start with the [README.md](../README.md) for essential features, then explore:
@@ -44,7 +44,7 @@ Start with the [README.md](../README.md) for essential features, then explore:
 - [VSCode Integration](vscode-integration.md) - Specific VSCode considerations
 - [Essential Plugins](plugins/essential.md) - Features that work in VSCode
 
-## 📖 Reading Order
+## Reading Order
 
 1. **[README.md](../README.md)** - Start here for quick setup
 2. **[Configuration System](configuration-system.md)** - Understand the architecture
@@ -53,15 +53,15 @@ Start with the [README.md](../README.md) for essential features, then explore:
 5. **[Essential Plugins](plugins/essential.md)** - Deep dive into core features
 6. **[Customization Guide](customization.md)** - Make it your own
 
-## 🔍 Finding Information
+## Finding Information
 
-- **Looking for a specific keymap?** → [Keymaps Reference](keymaps.md)
-- **Want to add a plugin?** → [Plugin Development](plugin-development.md)
-- **Having issues?** → [Troubleshooting](troubleshooting.md)
-- **Using VSCode?** → [VSCode Integration](vscode-integration.md)
-- **Want to customize?** → [Customization Guide](customization.md)
+- **Looking for a specific keymap?** [Keymaps Reference](keymaps.md)
+- **Want to add a plugin?** [Plugin Development](plugin-development.md)
+- **Having issues?** [Troubleshooting](troubleshooting.md)
+- **Using VSCode?** [VSCode Integration](vscode-integration.md)
+- **Want to customize?** [Customization Guide](customization.md)
 
-## 📝 Contributing
+## Contributing
 
 Found an error or want to improve the docs? See [Contributing](contributing.md) for guidelines.
 

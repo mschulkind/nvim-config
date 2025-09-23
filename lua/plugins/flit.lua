@@ -10,11 +10,6 @@ return {
     "ggandor/flit.nvim",
     config = function()
       require("flit").setup({
-        -- case_sensitive = false,  -- Make f/t searches case sensitive
-        -- max_phase_one_targets = 10,  -- Max targets in phase one
-        -- equivalence_classes = { " \t\r\n" },  -- Characters treated as equivalent
-        -- highlight = { backdrop = false },  -- Highlight backdrop for better visibility
-        -- special_keys = { repeat_search = ";" },  -- Custom repeat key
         
         -- =============================================================================
         -- CURRENT CONFIGURATION

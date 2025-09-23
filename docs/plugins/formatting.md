@@ -2,11 +2,11 @@
 
 This document covers the code formatting, linting, and quality tools for maintaining code standards.
 
-## 🎨 Code Formatting
+## Code Formatting
 
-### Conform ✓
-**Repository**: `stevearc/conform.nvim`  
-**VSCode Compatible**: ✓  
+### Conform 
+**Repository**: `stevearc/conform.nvim` 
+**VSCode Compatible**: 
 **Purpose**: Code formatting with multiple formatters
 
 #### Features
@@ -18,12 +18,12 @@ This document covers the code formatting, linting, and quality tools for maintai
 #### Configuration
 ```lua
 require("conform").setup({
-  -- format_on_save = { timeout_ms = 500 },  -- Increase timeout
-  -- formatters_by_ft = {
-  --   lua = { "stylua" },
-  --   python = { "black", "isort" },
-  --   javascript = { "prettier" },
-  -- },
+-- format_on_save = { timeout_ms = 500 }, -- Increase timeout
+-- formatters_by_ft = {
+-- lua = { "stylua" },
+-- python = { "black", "isort" },
+-- javascript = { "prettier" },
+-- },
 })
 ```
 
@@ -35,11 +35,11 @@ require("conform").setup({
 - **Rust**: rustfmt
 - **And many more...**
 
-## 🔍 Code Linting
+## Code Linting
 
-### nvim-lint ✓
-**Repository**: `mfussenegger/nvim-lint`  
-**VSCode Compatible**: ✓  
+### nvim-lint 
+**Repository**: `mfussenegger/nvim-lint` 
+**VSCode Compatible**: 
 **Purpose**: Asynchronous linting for code quality
 
 #### Features
@@ -51,12 +51,12 @@ require("conform").setup({
 #### Configuration
 ```lua
 require("lint").linters_by_ft = {
-  python = { "pylint", "mypy" },
-  javascript = { "eslint" },
-  typescript = { "eslint" },
-  lua = { "luacheck" },
-  go = { "golangci-lint" },
-  rust = { "cargo" },
+ python = { "pylint", "mypy" },
+ javascript = { "eslint" },
+ typescript = { "eslint" },
+ lua = { "luacheck" },
+ go = { "golangci-lint" },
+ rust = { "cargo" },
 }
 ```
 
@@ -68,25 +68,25 @@ require("lint").linters_by_ft = {
 - **Rust**: cargo check, clippy
 - **And many more...**
 
-## ⚙ Configuration Options
+## Configuration Options
 
 ### Conform Options
 ```lua
 -- Format on save
 format_on_save = {
-  timeout_ms = 500,
-  lsp_fallback = true,
+ timeout_ms = 500,
+ lsp_fallback = true,
 }
 
 -- Custom formatters
 formatters_by_ft = {
-  lua = { "stylua" },
-  python = { "black", "isort" },
+ lua = { "stylua" },
+ python = { "black", "isort" },
 }
 
 -- Format keymaps
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
-  require("conform").format({ async = true, lsp_fallback = true })
+ require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format code" })
 ```
 
@@ -94,18 +94,18 @@ end, { desc = "Format code" })
 ```lua
 -- Lint on save
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
+ callback = function()
+ require("lint").try_lint()
+ end,
 })
 
 -- Lint keymaps
 vim.keymap.set("n", "<leader>l", function()
-  require("lint").try_lint()
+ require("lint").try_lint()
 end, { desc = "Lint code" })
 ```
 
-## → Integration with LSP
+## Integration with LSP
 
 ### LSP Integration
 - **Conform** works alongside LSP formatters
@@ -118,14 +118,14 @@ end, { desc = "Lint code" })
 - **nvim-lint** shows issues in the gutter like VSCode
 - **Both plugins work seamlessly** in VSCode mode
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Custom Formatters
 ```lua
 -- Add custom formatter
 require("conform").formatters.custom_formatter = {
-  command = "custom-tool",
-  args = { "--format", "$FILENAME" },
+ command = "custom-tool",
+ args = { "--format", "$FILENAME" },
 }
 ```
 
@@ -133,17 +133,17 @@ require("conform").formatters.custom_formatter = {
 ```lua
 -- Add custom linter
 require("lint").linters.custom_linter = {
-  cmd = "custom-linter",
-  stdin = true,
-  args = { "--format", "json" },
-  parser = require("lint.parser").from_json({
-    source = "custom-linter",
-    severity = vim.diagnostic.severity.WARN,
-  }),
+ cmd = "custom-linter",
+ stdin = true,
+ args = { "--format", "json" },
+ parser = require("lint.parser").from_json({
+ source = "custom-linter",
+ severity = vim.diagnostic.severity.WARN,
+ }),
 }
 ```
 
-## → Best Practices
+## Best Practices
 
 ### Formatting
 - **Use format on save** for consistent code style
@@ -155,7 +155,7 @@ require("lint").linters.custom_linter = {
 - **Use quickfix** to navigate between issues
 - **Configure appropriate linters** for your project
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Essential Plugins](essential.md) - Core functionality plugins
 - [Utility Plugins](utilities.md) - Helper and productivity plugins

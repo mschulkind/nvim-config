@@ -2,11 +2,11 @@
 
 This document covers the utility plugins that provide essential functionality for enhanced editing experience.
 
-## → Text Objects
+## Text Objects
 
-### Targets.vim ✓
-**Repository**: `wellle/targets.vim`  
-**VSCode Compatible**: ✓  
+### Targets.vim 
+**Repository**: `wellle/targets.vim` 
+**VSCode Compatible**: 
 **Purpose**: Enhanced text objects for more precise text selection
 
 #### Features
@@ -23,9 +23,9 @@ This document covers the utility plugins that provide essential functionality fo
 
 ## 📏 Dynamic Scrolling
 
-### vim-scrolloff-fraction ✓
-**Repository**: `drzel/vim-scrolloff-fraction`  
-**VSCode Compatible**: ✓  
+### vim-scrolloff-fraction 
+**Repository**: `drzel/vim-scrolloff-fraction` 
+**VSCode Compatible**: 
 **Purpose**: Dynamic scrolloff based on window height
 
 #### Features
@@ -35,14 +35,14 @@ This document covers the utility plugins that provide essential functionality fo
 
 #### Configuration
 ```lua
-vim.g.scrolloff_fraction = 0.20  -- 20% of window height
+vim.g.scrolloff_fraction = 0.20 -- 20% of window height
 ```
 
-## 🪟 Window Management
+## Window Management
 
-### SwayConfig ✗
-**Repository**: `jamespeapen/swayconfig.vim`  
-**VSCode Compatible**: ✗ Disabled in VSCode  
+### SwayConfig 
+**Repository**: `jamespeapen/swayconfig.vim` 
+**VSCode Compatible**: Disabled in VSCode 
 **Purpose**: Sway window manager integration
 
 #### Features
@@ -54,11 +54,11 @@ vim.g.scrolloff_fraction = 0.20  -- 20% of window height
 - **Use VSCode's built-in window management** instead
 - **Workspace switching** is handled by VSCode's workspace system
 
-## 💬 Commenting
+## Commenting
 
-### NERD Commenter ✓
-**Repository**: `scrooloose/nerdcommenter`  
-**VSCode Compatible**: ✓  
+### NERD Commenter 
+**Repository**: `scrooloose/nerdcommenter` 
+**VSCode Compatible**: 
 **Purpose**: Powerful commenting system
 
 #### Features
@@ -73,11 +73,11 @@ vim.g.scrolloff_fraction = 0.20  -- 20% of window height
 | `gcc` | Comment line | Toggle comment on current line |
 | `gc` | Comment selection | Comment selected text in visual mode |
 
-## 🗑️ Buffer Management
+## Buffer Management
 
-### mini.bufremove ✓
-**Repository**: `nvim-mini/mini.bufremove`  
-**VSCode Compatible**: ✓  
+### mini.bufremove 
+**Repository**: `nvim-mini/mini.bufremove` 
+**VSCode Compatible**: 
 **Purpose**: Safe buffer removal without closing windows
 
 #### Features
@@ -90,11 +90,11 @@ vim.g.scrolloff_fraction = 0.20  -- 20% of window height
 |--------|--------|-------------|
 | `<leader>k` | Delete buffer | Remove current buffer safely |
 
-## 📊 LSP Progress
+## LSP Progress
 
-### Fidget ✓
-**Repository**: `j-hui/fidget.nvim`  
-**VSCode Compatible**: ✓  
+### Fidget 
+**Repository**: `j-hui/fidget.nvim` 
+**VSCode Compatible**: 
 **Purpose**: LSP progress indicator
 
 #### Features
@@ -106,16 +106,16 @@ vim.g.scrolloff_fraction = 0.20  -- 20% of window height
 #### Configuration
 ```lua
 require("fidget").setup({
-  -- notification = { window = { winblend = 0 } },  -- Custom notification window
-  -- progress = { suppress_on_insert = false },  -- Suppress progress on insert mode
+-- notification = { window = { winblend = 0 } }, -- Custom notification window
+-- progress = { suppress_on_insert = false }, -- Suppress progress on insert mode
 })
 ```
 
 ## 🧹 Whitespace Handling
 
-### vim-better-whitespace ✓
-**Repository**: `ntpeters/vim-better-whitespace`  
-**VSCode Compatible**: ✓  
+### vim-better-whitespace 
+**Repository**: `ntpeters/vim-better-whitespace` 
+**VSCode Compatible**: 
 **Purpose**: Highlight and manage whitespace issues
 
 #### Features
@@ -130,11 +130,11 @@ vim.g.better_whitespace_enabled = 1
 vim.g.better_whitespace_skip_empty_lines = 0
 ```
 
-## → Git Integration
+## Git Integration
 
-### Gitsigns ✓
-**Repository**: `lewis6991/gitsigns.nvim`  
-**VSCode Compatible**: ✓  
+### Gitsigns 
+**Repository**: `lewis6991/gitsigns.nvim` 
+**VSCode Compatible**: 
 **Purpose**: Git signs in the gutter
 
 #### Features
@@ -146,16 +146,16 @@ vim.g.better_whitespace_skip_empty_lines = 0
 #### Configuration
 ```lua
 require("gitsigns").setup({
-  -- signs = { add = { text = "+" }, change = { text = "~" }, delete = { text = "_" } },
-  -- numhl = false,  -- Enable line number highlighting
+-- signs = { add = { text = "+" }, change = { text = "~" }, delete = { text = "_" } },
+-- numhl = false, -- Enable line number highlighting
 })
 ```
 
-## 🔄 Undo History
+## Undo History
 
-### telescope-undo ✗
-**Repository**: `debugloop/telescope-undo.nvim`  
-**VSCode Compatible**: ✗ Disabled in VSCode  
+### telescope-undo 
+**Repository**: `debugloop/telescope-undo.nvim` 
+**VSCode Compatible**: Disabled in VSCode 
 **Purpose**: Searchable undo history
 
 #### Features
@@ -175,9 +175,9 @@ require("gitsigns").setup({
 
 ## 📏 Indentation Guides
 
-### indent-blankline ✓
-**Repository**: `lukas-reineke/indent-blankline.nvim`  
-**VSCode Compatible**: ✓  
+### indent-blankline 
+**Repository**: `lukas-reineke/indent-blankline.nvim` 
+**VSCode Compatible**: 
 **Purpose**: Visual indentation indicators
 
 #### Features
@@ -189,14 +189,14 @@ require("gitsigns").setup({
 #### Configuration
 ```lua
 require("ibl").setup({
-  -- indent = { char = "│" },  -- Custom indent character
-  -- scope = { enabled = false },  -- Enable scope indicators
+-- indent = { char = "│" }, -- Custom indent character
+-- scope = { enabled = false }, -- Enable scope indicators
 })
 ```
 
-## → Utility Plugin Categories
+## Utility Plugin Categories
 
-### VSCode-Compatible Utilities ✓
+### VSCode-Compatible Utilities 
 - **Targets.vim** - Text objects
 - **vim-scrolloff-fraction** - Dynamic scrolling
 - **NERD Commenter** - Commenting
@@ -206,11 +206,11 @@ require("ibl").setup({
 - **Gitsigns** - Git integration
 - **indent-blankline** - Indentation guides
 
-### VSCode-Disabled Utilities ✗
+### VSCode-Disabled Utilities 
 - **SwayConfig** - Window manager integration
 - **telescope-undo** - Undo history
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Essential Plugins](essential.md) - Core functionality plugins
 - [Navigation Plugins](navigation.md) - Motion and navigation plugins

@@ -2,10 +2,10 @@
 
 These are the core plugins that provide the fundamental functionality of this Neovim configuration. All essential plugins work in both standalone Neovim and VSCode.
 
-## 🔍 Telescope - File Finding & Searching
+## Telescope - File Finding & Searching
 
-**Repository**: `nvim-telescope/telescope.nvim`  
-**VSCode Compatible**: ✓  
+**Repository**: `nvim-telescope/telescope.nvim` 
+**VSCode Compatible**: 
 **Purpose**: Fuzzy finder for files, buffers, and more
 
 ### Key Features
@@ -26,14 +26,14 @@ These are the core plugins that provide the fundamental functionality of this Ne
 ```lua
 -- Horizontal layout with preview
 require("telescope").setup({
-  defaults = {
-    layout_strategy = "horizontal",
-    layout_config = {
-      horizontal = {
-        preview_width = 0.6,
-      },
-    },
-  },
+ defaults = {
+ layout_strategy = "horizontal",
+ layout_config = {
+ horizontal = {
+ preview_width = 0.6,
+ },
+ },
+ },
 })
 ```
 
@@ -43,10 +43,10 @@ require("telescope").setup({
 - **Help tags**: `:Telescope help_tags` - Search help documentation
 - **Commands**: `:Telescope commands` - Search available commands
 
-## 🤖 Copilot - AI Code Completion
+## Copilot - AI Code Completion
 
-**Repository**: `zbirenbaum/copilot.lua`  
-**VSCode Compatible**: ✓  
+**Repository**: `zbirenbaum/copilot.lua` 
+**VSCode Compatible**: 
 **Purpose**: AI-powered code completion
 
 ### Key Features
@@ -75,10 +75,10 @@ vim.g.copilot_assume_mapped = true
 - **Status**: `:Copilot status` - Check Copilot status
 - **Disable**: `:Copilot disable` - Temporarily disable Copilot
 
-## 🌳 Treesitter - Smart Syntax Highlighting
+## Treesitter - Smart Syntax Highlighting
 
-**Repository**: `nvim-treesitter/nvim-treesitter`  
-**VSCode Compatible**: ✓  
+**Repository**: `nvim-treesitter/nvim-treesitter` 
+**VSCode Compatible**: 
 **Purpose**: Advanced syntax highlighting and text objects
 
 ### Key Features
@@ -109,29 +109,29 @@ vim.g.copilot_assume_mapped = true
 ### Configuration
 ```lua
 require("nvim-treesitter.configs").setup({
-  ensure_installed = "all", -- Install all available parsers
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<C-space>",
-      node_incremental = "<C-space>",
-      scope_incremental = "<C-s>",
-      node_decremental = "<C-backspace>",
-    },
-  },
+ ensure_installed = "all", -- Install all available parsers
+ highlight = {
+ enable = true,
+ },
+ indent = {
+ enable = true,
+ },
+ incremental_selection = {
+ enable = true,
+ keymaps = {
+ init_selection = "<C-space>",
+ node_incremental = "<C-space>",
+ scope_incremental = "<C-s>",
+ node_decremental = "<C-backspace>",
+ },
+ },
 })
 ```
 
-## 🔧 Fugitive - Git Integration
+## Fugitive - Git Integration
 
-**Repository**: `tpope/vim-fugitive`  
-**VSCode Compatible**: ✓  
+**Repository**: `tpope/vim-fugitive` 
+**VSCode Compatible**: 
 **Purpose**: Git wrapper for Neovim
 
 ### Key Features
@@ -166,10 +166,10 @@ When you run `:Git` or press `,gs`, you get an interactive Git status window:
 - **Amend**: Press `ca` to amend last commit
 - **View changes**: Press `dv` to view file differences
 
-## → Flit.nvim - Enhanced F/T Motions
+## Flit.nvim - Enhanced F/T Motions
 
-**Repository**: `ggandor/flit.nvim`  
-**VSCode Compatible**: ✓  
+**Repository**: `ggandor/flit.nvim` 
+**VSCode Compatible**: 
 **Purpose**: Enhanced f, F, t, T motions with labeled targets
 
 ### Key Features
@@ -190,11 +190,11 @@ When you run `:Git` or press `,gs`, you get an interactive Git status window:
 ### Configuration
 ```lua
 require("flit").setup({
-  keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-  labeled_modes = "nv",  -- Enable labeled targets in normal and visual modes
-  clever_repeat = true,
-  multiline = true,
-  opts = {}
+ keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+ labeled_modes = "nv", -- Enable labeled targets in normal and visual modes
+ clever_repeat = true,
+ multiline = true,
+ opts = {}
 })
 ```
 
@@ -202,9 +202,9 @@ require("flit").setup({
 
 #### Basic Usage
 1. **Press `f`** followed by any character to jump to the next occurrence
-   - **Visual guide appears** showing labeled targets (e.g., `a`, `s`, `d`, `f`)
-   - **Press the label** to jump to that specific occurrence
-2. **Press `F`** followed by any character to jump to the previous occurrence  
+- **Visual guide appears** showing labeled targets (e.g., `a`, `s`, `d`, `f`)
+- **Press the label** to jump to that specific occurrence
+2. **Press `F`** followed by any character to jump to the previous occurrence 
 3. **Press `t`** to jump to just before the next occurrence
 4. **Press `T`** to jump to just before the previous occurrence
 
@@ -219,10 +219,10 @@ require("flit").setup({
 - **Works across lines** - multiline support for better navigation
 - **Labeled targets** appear when you press f/F/t/T for better accuracy
 
-## 🔄 Blink.cmp - Completion Engine
+## Blink.cmp - Completion Engine
 
-**Repository**: `saghen/blink.cmp`  
-**VSCode Compatible**: ✓  
+**Repository**: `saghen/blink.cmp` 
+**VSCode Compatible**: 
 **Purpose**: Modern completion engine with fuzzy matching
 
 ### Key Features
@@ -247,7 +247,7 @@ require("flit").setup({
 - **Snippets**: Code snippet completions
 - **Copilot**: AI-powered suggestions
 
-## → Why These Plugins?
+## Why These Plugins?
 
 ### Telescope
 - **Essential for navigation** - Finding files is the most common task
@@ -279,7 +279,7 @@ require("flit").setup({
 - **LSP integration** - Works with language servers
 - **Extensible** - Supports many completion sources
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Plugin System](plugin-system.md) - How plugins are managed
 - [Keymaps Reference](keymaps.md) - All available shortcuts

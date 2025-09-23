@@ -2,11 +2,11 @@
 
 This document covers language-specific syntax highlighting and file type support plugins.
 
-## 📝 TypeScript Support
+## TypeScript Support
 
-### typescript-vim ✓
-**Repository**: `leafgarland/typescript-vim`  
-**VSCode Compatible**: ✓  
+### typescript-vim 
+**Repository**: `leafgarland/typescript-vim` 
+**VSCode Compatible**: 
 **Purpose**: TypeScript syntax highlighting and indentation
 
 #### Features
@@ -22,11 +22,11 @@ This document covers language-specific syntax highlighting and file type support
 - **Decorators** - Decorator syntax support
 - **Modules** - ES6 module syntax
 
-## ⚛️ JSX/TSX Support
+## ⚛ JSX/TSX Support
 
-### vim-jsx-typescript ✓
-**Repository**: `peitalin/vim-jsx-typescript`  
-**VSCode Compatible**: ✓  
+### vim-jsx-typescript 
+**Repository**: `peitalin/vim-jsx-typescript` 
+**VSCode Compatible**: 
 **Purpose**: JSX and TSX syntax highlighting
 
 #### Features
@@ -41,11 +41,11 @@ This document covers language-specific syntax highlighting and file type support
 - **TypeScript in JSX** - Type annotations in JSX
 - **Fragment syntax** - `<>` and `</>` fragments
 
-## 📄 JSON Support
+## JSON Support
 
-### vim-jsonc ✓
-**Repository**: `kevinoid/vim-jsonc`  
-**VSCode Compatible**: ✓  
+### vim-jsonc 
+**Repository**: `kevinoid/vim-jsonc` 
+**VSCode Compatible**: 
 **Purpose**: JSON with Comments (JSONC) support
 
 #### Features
@@ -60,11 +60,11 @@ This document covers language-specific syntax highlighting and file type support
 - **Trailing commas** - Trailing comma support
 - **String highlighting** - Proper string syntax
 
-## 🎨 CSS/PostCSS Support
+## CSS/PostCSS Support
 
-### postcss-syntax.vim ✓
-**Repository**: `alexlafroscia/postcss-syntax.vim`  
-**VSCode Compatible**: ✓  
+### postcss-syntax.vim 
+**Repository**: `alexlafroscia/postcss-syntax.vim` 
+**VSCode Compatible**: 
 **Purpose**: PostCSS syntax highlighting
 
 #### Features
@@ -79,11 +79,11 @@ This document covers language-specific syntax highlighting and file type support
 - **PostCSS plugins** - Plugin-specific syntax
 - **Modern CSS** - Latest CSS features
 
-## 🔍 JSON Query Support
+## JSON Query Support
 
-### jq.vim ✓
-**Repository**: `vito-c/jq.vim`  
-**VSCode Compatible**: ✓  
+### jq.vim 
+**Repository**: `vito-c/jq.vim` 
+**VSCode Compatible**: 
 **Purpose**: jq query language syntax highlighting
 
 #### Features
@@ -98,7 +98,7 @@ This document covers language-specific syntax highlighting and file type support
 - **Operators** - `|`, `+`, `-`, `*`, `/` operators
 - **Conditionals** - `if-then-else` syntax
 
-## ⚙ Configuration
+## Configuration
 
 ### File Type Detection
 These plugins automatically detect file types based on extensions:
@@ -107,7 +107,7 @@ These plugins automatically detect file types based on extensions:
 -- TypeScript files
 *.ts -> typescript-vim
 
--- TSX files  
+-- TSX files 
 *.tsx -> vim-jsx-typescript
 
 -- JSONC files
@@ -126,7 +126,7 @@ All syntax plugins work seamlessly with VSCode:
 - **File type detection** matches VSCode behavior
 - **No conflicts** with VSCode's built-in highlighting
 
-## → Language-Specific Features
+## Language-Specific Features
 
 ### TypeScript
 - **Type annotations** - `: string`, `: number`, etc.
@@ -159,18 +159,18 @@ All syntax plugins work seamlessly with VSCode:
 - **Operators** - `|`, `+`, `-`, `*`, `/`
 - **Conditionals** - `if .field then .value else .default end`
 
-## 🔧 Advanced Configuration
+## Advanced Configuration
 
 ### Custom File Types
 ```lua
 -- Add custom file type detection
 vim.filetype.add({
-  extension = {
-    mylang = "mylang",
-  },
-  pattern = {
-    [".*%.mylang%.conf"] = "mylang",
-  },
+ extension = {
+ mylang = "mylang",
+ },
+ pattern = {
+ [".*%.mylang%.conf"] = "mylang",
+ },
 })
 ```
 
@@ -178,15 +178,15 @@ vim.filetype.add({
 ```lua
 -- Override syntax highlighting
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "typescript",
-  callback = function()
-    -- Custom TypeScript highlighting
-    vim.cmd("syntax keyword typescriptCustomKeyword myKeyword")
-  end,
+ pattern = "typescript",
+ callback = function()
+-- Custom TypeScript highlighting
+ vim.cmd("syntax keyword typescriptCustomKeyword myKeyword")
+ end,
 })
 ```
 
-## 📚 Related Documentation
+## Related Documentation
 
 - [Essential Plugins](essential.md) - Core functionality plugins
 - [Utility Plugins](utilities.md) - Helper and productivity plugins

@@ -110,6 +110,7 @@ function M.setup()
       wrap = true,
     },
     -- Installer settings
+    -- Allow Lazy.nvim to auto-install missing plugins during startup
     install = {
       missing = true,
       colorscheme = { "gruvbox" },
