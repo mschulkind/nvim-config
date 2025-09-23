@@ -2,11 +2,11 @@
 
 This document covers the utility plugins that provide essential functionality for enhanced editing experience.
 
-## 🎯 Text Objects
+## → Text Objects
 
-### Targets.vim ✅
+### Targets.vim ✓
 **Repository**: `wellle/targets.vim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Enhanced text objects for more precise text selection
 
 #### Features
@@ -23,9 +23,9 @@ This document covers the utility plugins that provide essential functionality fo
 
 ## 📏 Dynamic Scrolling
 
-### vim-scrolloff-fraction ✅
+### vim-scrolloff-fraction ✓
 **Repository**: `drzel/vim-scrolloff-fraction`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Dynamic scrolloff based on window height
 
 #### Features
@@ -40,9 +40,9 @@ vim.g.scrolloff_fraction = 0.20  -- 20% of window height
 
 ## 🪟 Window Management
 
-### SwayConfig ❌
+### SwayConfig ✗
 **Repository**: `jamespeapen/swayconfig.vim`  
-**VSCode Compatible**: ❌ Disabled in VSCode  
+**VSCode Compatible**: ✗ Disabled in VSCode  
 **Purpose**: Sway window manager integration
 
 #### Features
@@ -56,9 +56,9 @@ vim.g.scrolloff_fraction = 0.20  -- 20% of window height
 
 ## 💬 Commenting
 
-### NERD Commenter ✅
+### NERD Commenter ✓
 **Repository**: `scrooloose/nerdcommenter`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Powerful commenting system
 
 #### Features
@@ -75,9 +75,9 @@ vim.g.scrolloff_fraction = 0.20  -- 20% of window height
 
 ## 🗑️ Buffer Management
 
-### mini.bufremove ✅
+### mini.bufremove ✓
 **Repository**: `nvim-mini/mini.bufremove`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Safe buffer removal without closing windows
 
 #### Features
@@ -92,9 +92,9 @@ vim.g.scrolloff_fraction = 0.20  -- 20% of window height
 
 ## 📊 LSP Progress
 
-### Fidget ✅
+### Fidget ✓
 **Repository**: `j-hui/fidget.nvim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: LSP progress indicator
 
 #### Features
@@ -113,9 +113,9 @@ require("fidget").setup({
 
 ## 🧹 Whitespace Handling
 
-### vim-better-whitespace ✅
+### vim-better-whitespace ✓
 **Repository**: `ntpeters/vim-better-whitespace`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Highlight and manage whitespace issues
 
 #### Features
@@ -130,11 +130,11 @@ vim.g.better_whitespace_enabled = 1
 vim.g.better_whitespace_skip_empty_lines = 0
 ```
 
-## 🎯 Git Integration
+## → Git Integration
 
-### Gitsigns ✅
+### Gitsigns ✓
 **Repository**: `lewis6991/gitsigns.nvim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Git signs in the gutter
 
 #### Features
@@ -153,9 +153,9 @@ require("gitsigns").setup({
 
 ## 🔄 Undo History
 
-### telescope-undo ❌
+### telescope-undo ✗
 **Repository**: `debugloop/telescope-undo.nvim`  
-**VSCode Compatible**: ❌ Disabled in VSCode  
+**VSCode Compatible**: ✗ Disabled in VSCode  
 **Purpose**: Searchable undo history
 
 #### Features
@@ -175,9 +175,9 @@ require("gitsigns").setup({
 
 ## 📏 Indentation Guides
 
-### indent-blankline ✅
+### indent-blankline ✓
 **Repository**: `lukas-reineke/indent-blankline.nvim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Visual indentation indicators
 
 #### Features
@@ -194,9 +194,9 @@ require("ibl").setup({
 })
 ```
 
-## 🎯 Utility Plugin Categories
+## → Utility Plugin Categories
 
-### VSCode-Compatible Utilities ✅
+### VSCode-Compatible Utilities ✓
 - **Targets.vim** - Text objects
 - **vim-scrolloff-fraction** - Dynamic scrolling
 - **NERD Commenter** - Commenting
@@ -206,7 +206,7 @@ require("ibl").setup({
 - **Gitsigns** - Git integration
 - **indent-blankline** - Indentation guides
 
-### VSCode-Disabled Utilities ❌
+### VSCode-Disabled Utilities ✗
 - **SwayConfig** - Window manager integration
 - **telescope-undo** - Undo history
 

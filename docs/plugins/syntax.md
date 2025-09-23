@@ -4,9 +4,9 @@ This document covers language-specific syntax highlighting and file type support
 
 ## 📝 TypeScript Support
 
-### typescript-vim ✅
+### typescript-vim ✓
 **Repository**: `leafgarland/typescript-vim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: TypeScript syntax highlighting and indentation
 
 #### Features
@@ -24,9 +24,9 @@ This document covers language-specific syntax highlighting and file type support
 
 ## ⚛️ JSX/TSX Support
 
-### vim-jsx-typescript ✅
+### vim-jsx-typescript ✓
 **Repository**: `peitalin/vim-jsx-typescript`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: JSX and TSX syntax highlighting
 
 #### Features
@@ -43,9 +43,9 @@ This document covers language-specific syntax highlighting and file type support
 
 ## 📄 JSON Support
 
-### vim-jsonc ✅
+### vim-jsonc ✓
 **Repository**: `kevinoid/vim-jsonc`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: JSON with Comments (JSONC) support
 
 #### Features
@@ -62,9 +62,9 @@ This document covers language-specific syntax highlighting and file type support
 
 ## 🎨 CSS/PostCSS Support
 
-### postcss-syntax.vim ✅
+### postcss-syntax.vim ✓
 **Repository**: `alexlafroscia/postcss-syntax.vim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: PostCSS syntax highlighting
 
 #### Features
@@ -81,9 +81,9 @@ This document covers language-specific syntax highlighting and file type support
 
 ## 🔍 JSON Query Support
 
-### jq.vim ✅
+### jq.vim ✓
 **Repository**: `vito-c/jq.vim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: jq query language syntax highlighting
 
 #### Features
@@ -98,7 +98,7 @@ This document covers language-specific syntax highlighting and file type support
 - **Operators** - `|`, `+`, `-`, `*`, `/` operators
 - **Conditionals** - `if-then-else` syntax
 
-## ⚙️ Configuration
+## ⚙ Configuration
 
 ### File Type Detection
 These plugins automatically detect file types based on extensions:
@@ -126,7 +126,7 @@ All syntax plugins work seamlessly with VSCode:
 - **File type detection** matches VSCode behavior
 - **No conflicts** with VSCode's built-in highlighting
 
-## 🎯 Language-Specific Features
+## → Language-Specific Features
 
 ### TypeScript
 - **Type annotations** - `: string`, `: number`, etc.

@@ -4,9 +4,9 @@ This document covers the code formatting, linting, and quality tools for maintai
 
 ## 🎨 Code Formatting
 
-### Conform ✅
+### Conform ✓
 **Repository**: `stevearc/conform.nvim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Code formatting with multiple formatters
 
 #### Features
@@ -37,9 +37,9 @@ require("conform").setup({
 
 ## 🔍 Code Linting
 
-### nvim-lint ✅
+### nvim-lint ✓
 **Repository**: `mfussenegger/nvim-lint`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Asynchronous linting for code quality
 
 #### Features
@@ -68,7 +68,7 @@ require("lint").linters_by_ft = {
 - **Rust**: cargo check, clippy
 - **And many more...**
 
-## ⚙️ Configuration Options
+## ⚙ Configuration Options
 
 ### Conform Options
 ```lua
@@ -105,7 +105,7 @@ vim.keymap.set("n", "<leader>l", function()
 end, { desc = "Lint code" })
 ```
 
-## 🎯 Integration with LSP
+## → Integration with LSP
 
 ### LSP Integration
 - **Conform** works alongside LSP formatters
@@ -143,7 +143,7 @@ require("lint").linters.custom_linter = {
 }
 ```
 
-## 🎯 Best Practices
+## → Best Practices
 
 ### Formatting
 - **Use format on save** for consistent code style

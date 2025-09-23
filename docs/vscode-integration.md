@@ -4,7 +4,7 @@ This Neovim configuration is designed to work seamlessly in both standalone Neov
 
 > **Note**: This also applies to Cursor IDE, which uses the same VSCode Neovim extension.
 
-## 🎯 Overview
+## → Overview
 
 The configuration automatically detects when running in VSCode and adapts accordingly:
 
@@ -25,7 +25,7 @@ end
 
 This is automatically set by the VSCode Neovim extension.
 
-## ⚙️ Required Configuration
+## ⚙ Required Configuration
 
 ### Composite Key Sequences
 
@@ -56,7 +56,7 @@ VSCode's Neovim extension handles composite key sequences differently than stand
 - Some other composite keys may not function as expected
 
 
-## ✅ Features That Work in VSCode
+## ✓ Features That Work in VSCode
 
 ### Core Functionality
 - **Telescope** - File finding and searching
@@ -79,33 +79,33 @@ VSCode's Neovim extension handles composite key sequences differently than stand
 - **Diagnostics**: Error highlighting and navigation
 - **Code actions**: Available through VSCode's command palette
 
-## ❌ Features Disabled in VSCode
+## ✗ Features Disabled in VSCode
 
 ### UI Plugins (Use VSCode's Native Features Instead)
 
-#### NerdTree ❌
+#### NerdTree ✗
 - **Disabled because**: Conflicts with VSCode's file explorer
 - **VSCode alternative**: Use VSCode's file explorer (Ctrl+Shift+E)
 - **Keymap**: `<F6>` is disabled
 
-#### Lualine ❌
+#### Lualine ✗
 - **Disabled because**: Conflicts with VSCode's status bar
 - **VSCode alternative**: Use VSCode's status bar
 - **Features**: File info, Git status, etc. are shown in VSCode's status bar
 
-#### Gruvbox ❌
+#### Gruvbox ✗
 - **Disabled because**: Conflicts with VSCode's theme system
 - **VSCode alternative**: Use VSCode's theme system
 - **Note**: You can still use VSCode themes that mimic Gruvbox
 
 ### Utility Plugins
 
-#### Mundo ❌
+#### Mundo ✗
 - **Disabled because**: Conflicts with VSCode's timeline feature
 - **VSCode alternative**: Use VSCode's timeline (Ctrl+Shift+P → "Timeline")
 - **Keymap**: `<F5>` is disabled
 
-#### SwayConfig ❌
+#### SwayConfig ✗
 - **Disabled because**: Not relevant in VSCode environment
 - **Note**: This is a window manager integration plugin
 
@@ -122,7 +122,7 @@ VSCode's Neovim extension handles composite key sequences differently than stand
 - **Theme integration** - Uses VSCode's theme system
 - **Command palette integration** - Works with VSCode's command palette
 
-## 🚀 Getting Started in VSCode
+## ★ Getting Started in VSCode
 
 ### 1. Install the Neovim Extension
 1. Open VSCode
@@ -239,7 +239,7 @@ Since Gruvbox is disabled in VSCode, consider these alternatives:
 }
 ```
 
-## 🎯 Best Practices for VSCode Users
+## → Best Practices for VSCode Users
 
 ### 1. Use VSCode's Native Features
 - **File explorer**: Use VSCode's file explorer instead of NerdTree

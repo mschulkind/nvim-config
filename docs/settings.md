@@ -2,7 +2,7 @@
 
 This document explains all the configuration settings used in this Neovim configuration.
 
-## 🎯 Core Settings
+## → Core Settings
 
 ### Performance Settings
 

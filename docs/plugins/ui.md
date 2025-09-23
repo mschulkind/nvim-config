@@ -4,9 +4,9 @@ This document covers the user interface plugins in this Neovim configuration.
 
 ## 🎨 Status Line
 
-### Lualine ❌
+### Lualine ✗
 **Repository**: `nvim-lualine/lualine.nvim`  
-**VSCode Compatible**: ❌ Disabled in VSCode  
+**VSCode Compatible**: ✗ Disabled in VSCode  
 **Purpose**: Status line with theme and information
 
 #### Features
@@ -32,9 +32,9 @@ require('lualine').setup({
 
 ## 🌈 Color Schemes
 
-### Gruvbox ❌
+### Gruvbox ✗
 **Repository**: `ellisonleao/gruvbox.nvim`  
-**VSCode Compatible**: ❌ Disabled in VSCode  
+**VSCode Compatible**: ✗ Disabled in VSCode  
 **Purpose**: Dark color scheme with high contrast
 
 #### Features
@@ -83,9 +83,9 @@ vim.cmd("colorscheme gruvbox")
 
 ## 📁 File Explorer
 
-### nvim-tree ❌
+### nvim-tree ✗
 **Repository**: `nvim-tree/nvim-tree.lua`  
-**VSCode Compatible**: ❌ Disabled in VSCode  
+**VSCode Compatible**: ✗ Disabled in VSCode  
 **Purpose**: Modern file explorer and project navigation
 
 #### Features
@@ -126,9 +126,9 @@ require("nvim-tree").setup({
 
 ## 🔄 Undo History
 
-### telescope-undo ❌
+### telescope-undo ✗
 **Repository**: `debugloop/telescope-undo.nvim`  
-**VSCode Compatible**: ❌ Disabled in VSCode  
+**VSCode Compatible**: ✗ Disabled in VSCode  
 **Purpose**: Searchable undo history with telescope integration
 
 #### Features
@@ -153,11 +153,11 @@ require("telescope").load_extension("undo")
 - **Keymap**: Ctrl+Shift+P → "Timeline"
 - **Features**: Integrated with VSCode's history system
 
-## 🎯 Indentation Guides
+## → Indentation Guides
 
-### Indent Blankline ✅
+### Indent Blankline ✓
 **Repository**: `lukas-reineke/indent-blankline.nvim`  
-**VSCode Compatible**: ✅ Works in both modes  
+**VSCode Compatible**: ✓ Works in both modes  
 **Purpose**: Visual indentation indicators
 
 #### Features
@@ -182,11 +182,11 @@ require("ibl").setup({
 })
 ```
 
-## 🎯 Enhanced Motions
+## → Enhanced Motions
 
-### Flit.nvim ✅
+### Flit.nvim ✓
 **Repository**: `ggandor/flit.nvim`  
-**VSCode Compatible**: ✅ Works in both modes  
+**VSCode Compatible**: ✓ Works in both modes  
 **Purpose**: Enhanced f, F, t, T motions with labeled targets
 
 #### Features
@@ -225,9 +225,9 @@ require("flit").setup({
 
 ## 🔧 Window Management
 
-### SwayConfig ❌
+### SwayConfig ✗
 **Repository**: `jamespeapen/swayconfig.vim`  
-**VSCode Compatible**: ❌ Disabled in VSCode  
+**VSCode Compatible**: ✗ Disabled in VSCode  
 **Purpose**: Sway window manager integration
 
 #### Features
@@ -241,9 +241,9 @@ require("flit").setup({
 
 ## 📊 File Type Icons
 
-### Web Devicons ✅
+### Web Devicons ✓
 **Repository**: `nvim-tree/nvim-web-devicons`  
-**VSCode Compatible**: ✅ Works in both modes  
+**VSCode Compatible**: ✓ Works in both modes  
 **Purpose**: File type icons for better visual identification
 
 #### Features
@@ -260,14 +260,14 @@ require("nvim-web-devicons").setup({
 })
 ```
 
-## 🎯 UI Plugin Categories
+## → UI Plugin Categories
 
-### VSCode-Compatible UI Plugins ✅
+### VSCode-Compatible UI Plugins ✓
 - **Indent Blankline** - Indentation guides
 - **Flip.nvim** - Smooth scrolling
 - **Web Devicons** - File type icons
 
-### VSCode-Disabled UI Plugins ❌
+### VSCode-Disabled UI Plugins ✗
 - **Lualine** - Status line
 - **Gruvbox** - Color scheme
 - **nvim-tree** - File explorer

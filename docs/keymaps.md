@@ -2,15 +2,15 @@
 
 Complete reference for all keymaps in this Neovim configuration. All keymaps work in both standalone Neovim and VSCode unless marked otherwise.
 
-## 🎯 Legend
+## → Legend
 
-- ✅ **VSCode Compatible**: Works in both modes
-- ❌ **VSCode Disabled**: Disabled in VSCode mode
+- ✓ **VSCode Compatible**: Works in both modes
+- ✗ **VSCode Disabled**: Disabled in VSCode mode
 - **Mode**: `n` = Normal, `i` = Insert, `v` = Visual, `c` = Command
 
-## 🚀 Essential Keymaps (Learn These First!)
+## ★ Essential Keymaps (Learn These First!)
 
-### File Operations ✅
+### File Operations ✓
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `<C-S>` | n,i | Save | Quick save (Ctrl+S) |
@@ -18,7 +18,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `,v` | n | Open config | Open Neovim config file |
 | `,V` | n | Reload config | Reload configuration |
 
-### Navigation ✅
+### Navigation ✓
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `,f` | n | Find files | Telescope file finder |
@@ -27,7 +27,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `<C-h/j/k/l>` | n,i | Navigate splits | Move between windows |
 | `<A-Left/Right>` | n | Move windows | Move current window left/right |
 
-### Text Editing ✅
+### Text Editing ✓
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `jj` | i | Escape | Alternative to Escape key |
@@ -37,7 +37,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 
 ## 📋 Complete Keymap Reference
 
-### Navigation & Movement ✅
+### Navigation & Movement ✓
 
 #### Window Navigation
 | Keymap | Mode | Action | Description |
@@ -57,7 +57,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `,b` | n | Find buffers | Switch between hidden buffers (MRU sorted) |
 | `<C-Y>` | n | Go to tag | Navigate to tag under cursor |
 
-#### Enhanced Motions (Flit.nvim) ✅
+#### Enhanced Motions (Flit.nvim) ✓
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `f` | n | Find forward | Enhanced f motion with labeled targets |
@@ -65,7 +65,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `t` | n | Till forward | Enhanced t motion with labeled targets |
 | `T` | n | Till backward | Enhanced T motion with labeled targets |
 
-### Text Editing ✅
+### Text Editing ✓
 
 #### Basic Editing
 | Keymap | Mode | Action | Description |
@@ -75,7 +75,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `<DEL>` | n | Clear line | Clear current line content |
 | `gp` | n | Select pasted | Select the text you just pasted |
 
-#### Commenting (NerdCommenter) ✅
+#### Commenting (NerdCommenter) ✓
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `gcc` | n | Comment line | Comment/uncomment current line |
@@ -90,7 +90,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 - **`gcc`** - Comment all selected lines at once
 - **`gct`** - Toggle comment on all selected lines
 
-### Command Line ✅
+### Command Line ✓
 
 #### Command Line Navigation
 | Keymap | Mode | Action | Description |
@@ -104,7 +104,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 |--------|------|--------|-------------|
 | `w!!` | c | Sudo save | Save file with sudo |
 
-### Enhanced Navigation (Flit + Leap) ✅
+### Enhanced Navigation (Flit + Leap) ✓
 
 #### Flit.nvim - Enhanced f/t Motions
 | Keymap | Mode | Action | Description |
@@ -129,9 +129,9 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `;` | n | Repeat last leap | Repeat the last leap motion |
 | `,` | n | Repeat leap backward | Repeat the last leap motion backward |
 
-> 🎯 **Learn more**: [Complete Flit + Leap guide](plugins/navigation.md)
+> → **Learn more**: [Complete Flit + Leap guide](plugins/navigation.md)
 
-### Configuration ✅
+### Configuration ✓
 
 #### Config Management
 | Keymap | Mode | Action | Description |
@@ -140,7 +140,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `,V` | n | Reload config | Reload Neovim configuration |
 | `,r` | n | Show registers | Display all registers |
 
-### Registers ✅
+### Registers ✓
 
 #### Register Operations
 | Keymap | Mode | Action | Description |
@@ -156,7 +156,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `,8` | n | Paste register 8 | Paste from register 8 |
 | `,9` | n | Paste register 9 | Paste from register 9 |
 
-### Quickfix & Location Lists ✅
+### Quickfix & Location Lists ✓
 
 #### Quickfix Operations
 | Keymap | Mode | Action | Description |
@@ -178,7 +178,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `<C-F2>` | n | Previous location | Go to previous location list item |
 | `<C-F3>` | n | Next location | Go to next location list item |
 
-### Search & Folding ✅
+### Search & Folding ✓
 
 #### Search Operations
 | Keymap | Mode | Action | Description |
@@ -191,14 +191,14 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `zo` | n | Open fold | Open fold (recursive) |
 | `zO` | n | Close fold | Close fold (recursive) |
 
-### LSP ✅
+### LSP ✓
 
 #### Language Server Protocol
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `K` | n | Hover | Show LSP hover information with border |
 
-### Treesitter ✅
+### Treesitter ✓
 
 #### Text Objects
 | Keymap | Mode | Action | Description |
@@ -211,36 +211,36 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `]a` | n | Next parameter | Go to next parameter |
 | `[a` | n | Previous parameter | Go to previous parameter |
 
-### Git Integration ✅
+### Git Integration ✓
 
 #### Fugitive
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `,gs` | n | Git status | Open Git status window |
 
-### Buffer Management ✅
+### Buffer Management ✓
 
 #### Buffer Operations
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `,k` | n | Delete buffer | Delete buffer without closing window |
 
-## ❌ VSCode-Disabled Keymaps
+## ✗ VSCode-Disabled Keymaps
 
 These keymaps are disabled in VSCode mode (use VSCode's native features instead):
 
-### File Explorer (nvim-tree) ❌
+### File Explorer (nvim-tree) ✗
 | Keymap | Mode | Action | VSCode Alternative |
 |--------|------|--------|-------------------|
 | `<F6>` | n | Toggle nvim-tree | Use VSCode's file explorer |
 | `g?` | n | nvim-tree help | Use VSCode's file explorer |
 
-### Undo History (telescope-undo) ❌
+### Undo History (telescope-undo) ✗
 | Keymap | Mode | Action | VSCode Alternative |
 |--------|------|--------|-------------------|
 | `<F5>` | n | Telescope undo | Use VSCode's timeline feature |
 
-## 🎯 Keymap Categories by Use Case
+## → Keymap Categories by Use Case
 
 ### For File Management
 - `,f` - Find files
@@ -271,7 +271,7 @@ These keymaps are disabled in VSCode mode (use VSCode's native features instead)
 2. **Use muscle memory**: Practice the same keymaps repeatedly
 3. **Check this reference**: Keep this page handy while learning
 4. **Customize gradually**: Add your own keymaps as you get comfortable
-5. **VSCode users**: Focus on the ✅ keymaps that work in both modes
+5. **VSCode users**: Focus on the ✓ keymaps that work in both modes
 
 ## 🔧 Customizing Keymaps
 

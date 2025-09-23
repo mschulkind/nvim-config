@@ -26,7 +26,7 @@ nvim
 - 🔍 **Telescope** (fuzzy file finder)
 - 🌳 **Tree-sitter** (smart syntax highlighting)
 - 🔧 **Fugitive** (Git integration)
-- 🎯 **Leap + Flit** (enhanced navigation)
+- → **Leap + Flit** (enhanced navigation)
 - 📊 **Lualine** (status line)
 - And many more productivity plugins!
 
@@ -34,20 +34,20 @@ nvim
 
 ---
 
-**🎯 Cross-Mode Compatible**: This configuration works seamlessly in both standalone Neovim and VSCode. All features below work in both modes unless marked otherwise.
+**→ Cross-Mode Compatible**: This configuration works seamlessly in both standalone Neovim and VSCode. All features below work in both modes unless marked otherwise.
 
 > ⚠️ **Version Requirement**: This configuration requires **Neovim 0.12+** to use all features. Check your version with `nvim --version` and update if needed.
 
-## 🎯 VSCode Integration
+## → VSCode Integration
 
 This config works seamlessly in VSCode using the [VSCode Neovim extension](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim). The configuration automatically detects VSCode mode and adapts accordingly:
 
-### ✅ What Works in VSCode
+### ✓ What Works in VSCode
 - **🔍 Full Plugin Support**: LSP, Treesitter, Telescope, Copilot, and navigation plugins work perfectly
 - **⚡ Smart Config Split**: VSCode-specific features are disabled to avoid conflicts
-- **🎯 Native Integration**: Leverages VSCode's built-in features while keeping Neovim's power
+- **→ Native Integration**: Leverages VSCode's built-in features while keeping Neovim's power
 
-### ❌ VSCode-Disabled Features
+### ✗ VSCode-Disabled Features
 These features are disabled in VSCode to prevent conflicts (use VSCode's native features instead):
 
 | Feature | VSCode Alternative | Reason |
@@ -58,29 +58,29 @@ These features are disabled in VSCode to prevent conflicts (use VSCode's native 
 | **🕰️ telescope-undo** (`<F5>`) | Undo history | Use VSCode's timeline |
 
 
-### ⚙️ VSCode Setup Required
+### ⚙ VSCode Setup Required
 - **`jj` escape keybinding**: Requires VSCode configuration (see detailed guide below)
 
 > 📖 **Detailed VSCode Guide**: See [VSCode Integration Guide](docs/vscode-integration.md) for setup, keybindings, and advanced configuration.
 
 > 📖 **Want more details?** Check out our [Complete Documentation](docs/README.md) for in-depth guides and advanced features!
 
-## 🚀 Essential Features (Learn These First!)
+## ★ Essential Features (Learn These First!)
 
-### 🧭 Core Navigation ✅
+### 🧭 Core Navigation ✓
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `,f` | 🔍 Find files | **Most used** - Fuzzy finder for files |
 | `,o` | 📁 Find old files | Recently opened files |
 | `,b` | 📄 Find buffers | Switch between open files |
 | `<C-h/j/k/l>` | 🪟 Navigate splits | Move between windows |
-| `<C-w>s` | ✂️ Split horizontal | Split window horizontally |
-| `<C-w>v` | ✂️ Split vertical | Split window vertically |
+| `<C-w>s` | ✂ Split horizontal | Split window horizontally |
+| `<C-w>v` | ✂ Split vertical | Split window vertically |
 | `jj` | ⚡ Escape | Alternative to Escape key |
 
 > 💡 **Pro tip**: See [Complete Keymap Reference](docs/keymaps.md) for all available shortcuts!
 
-### ✏️ Essential Editing ✅
+### ✏️ Essential Editing ✓
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `<C-S>` | 💾 Save | Quick save (Ctrl+S) |
@@ -88,14 +88,14 @@ These features are disabled in VSCode to prevent conflicts (use VSCode's native 
 | `gcu` | 🔓 Uncomment line | Uncomment current line (works great with `V` for visual line mode) |
 | `,k` | 🗑️ Delete buffer | Close file without closing window |
 
-### 🔧 Git Integration ✅
+### 🔧 Git Integration ✓
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `,gs` | 📊 Git status | Open Git status window |
 
 > 🔗 **Learn more**: [Git integration guide](docs/plugins/essential.md#fugitive---git-integration)
 
-### ⚙️ Configuration ✅
+### ⚙ Configuration ✓
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `,v` | 📝 Open config | Open Neovim config file |
@@ -120,7 +120,7 @@ Simply uncomment and modify the options you want to change!
 
 ## 🔌 Top Plugins (Auto-installed)
 
-### 🔍 Telescope ✅ ([GitHub](https://github.com/nvim-telescope/telescope.nvim))
+### 🔍 Telescope ✓ ([GitHub](https://github.com/nvim-telescope/telescope.nvim))
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `,f` | 🔍 Find files | Fuzzy finder for files |
@@ -131,25 +131,25 @@ Simply uncomment and modify the options you want to change!
 
 > 📚 **Deep dive**: [Telescope documentation](docs/plugins/essential.md#telescope---file-finding--searching)
 
-### 🤖 Copilot ✅ ([GitHub](https://github.com/zbirenbaum/copilot.lua))
+### 🤖 Copilot ✓ ([GitHub](https://github.com/zbirenbaum/copilot.lua))
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `<Tab>` | 🤖 Accept suggestion | Accept AI code completion |
 
 **Why it's great**: Context-aware code suggestions
 
-### 🌳 Treesitter ✅ ([GitHub](https://github.com/nvim-treesitter/nvim-treesitter))
+### 🌳 Treesitter ✓ ([GitHub](https://github.com/nvim-treesitter/nvim-treesitter))
 - **Purpose**: Smart syntax highlighting
 - **Why it's great**: Better code understanding and navigation
 
-### 🔧 Fugitive ✅ ([GitHub](https://github.com/tpope/vim-fugitive))
+### 🔧 Fugitive ✓ ([GitHub](https://github.com/tpope/vim-fugitive))
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `,gs` | 📊 Git status | Open Git status window |
 
 **Why it's great**: Full Git workflow in Neovim
 
-### 🗂️ nvim-tree ✅ ([GitHub](https://github.com/nvim-tree/nvim-tree.lua))
+### 🗂️ nvim-tree ✓ ([GitHub](https://github.com/nvim-tree/nvim-tree.lua))
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `<F6>` | 🗂️ Toggle filetree | Open/close file explorer with current file selected |
@@ -159,7 +159,7 @@ Simply uncomment and modify the options you want to change!
 
 > ℹ️ Note: This feature is disabled in VSCode to avoid overlap with the built-in file explorer.
 
-### 🕰️ Telescope Undo ✅ ([GitHub](https://github.com/debugloop/telescope-undo.nvim))
+### 🕰️ Telescope Undo ✓ ([GitHub](https://github.com/debugloop/telescope-undo.nvim))
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `<F5>` | 🕰️ Undo history | Open telescope undo history |
@@ -168,24 +168,24 @@ Simply uncomment and modify the options you want to change!
 
 > ℹ️ Note: This feature is disabled in VSCode to avoid overlap with the built-in Timeline.
 
-### 🎯 Enhanced Navigation (Flit + Leap) ✅ ([Flit GitHub](https://github.com/ggandor/flit.nvim) | [Leap GitHub](https://github.com/ggandor/leap.nvim))
+### → Enhanced Navigation (Flit + Leap) ✓ ([Flit GitHub](https://github.com/ggandor/flit.nvim) | [Leap GitHub](https://github.com/ggandor/leap.nvim))
 | Keymap | Action | Description |
 |--------|--------|-------------|
-| `f<char>` | 🎯 Jump forward | Jump to next occurrence of character |
-| `F<char>` | 🎯 Jump backward | Jump to previous occurrence of character |
-| `t<char>` | 🎯 Jump before | Jump just before next occurrence |
-| `T<char>` | 🎯 Jump before | Jump just before previous occurrence |
-| `s<char><char>` | 🚀 Leap 2-char | Jump anywhere with 2 characters |
-| `S<char><char>` | 🚀 Leap line | Jump in current line with 2 characters |
-| `gs<char><char>` | 🚀 Leap window | Jump anywhere in window with 2 characters |
+| `f<char>` | → Jump forward | Jump to next occurrence of character |
+| `F<char>` | → Jump backward | Jump to previous occurrence of character |
+| `t<char>` | → Jump before | Jump just before next occurrence |
+| `T<char>` | → Jump before | Jump just before previous occurrence |
+| `s<char><char>` | ★ Leap 2-char | Jump anywhere with 2 characters |
+| `S<char><char>` | ★ Leap line | Jump in current line with 2 characters |
+| `gs<char><char>` | ★ Leap window | Jump anywhere in window with 2 characters |
 | `;` | 🔄 Repeat | Repeat last motion |
 | `,` | 🔄 Reverse | Repeat motion in opposite direction |
 
 **Why it's great**: Labeled targets and 2-character jumping
 
-> 🎯 **Master Both**: [Complete Flit + Leap Guide](docs/plugins/navigation.md) | [All Keybinds Reference](docs/keymaps.md#enhanced-navigation)
+> → **Master Both**: [Complete Flit + Leap Guide](docs/plugins/navigation.md) | [All Keybinds Reference](docs/keymaps.md#enhanced-navigation)
 
-### 🔌 Lazy.nvim ✅ ([GitHub](https://github.com/folke/lazy.nvim))
+### 🔌 Lazy.nvim ✓ ([GitHub](https://github.com/folke/lazy.nvim))
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `,L` | 🔌 Lazy interface | Open plugin manager interface |
@@ -207,8 +207,8 @@ Simply uncomment and modify the options you want to change!
 - [📖 Neovim Documentation](https://neovim.io/doc/)
 - [🎮 Vim Adventures](https://vim-adventures.com/) - Learn Vim keybindings through a game
 - [📚 Complete Documentation](docs/README.md) - In-depth guides for this configuration
-- [⚙️ Customization Guide](docs/customization.md) - Make it your own!
+- [⚙ Customization Guide](docs/customization.md) - Make it your own!
 
 ---
 
-**Happy editing!** 🚀✨
+**Happy editing!** ★✨

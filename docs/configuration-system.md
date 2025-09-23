@@ -135,7 +135,7 @@ Plugins are loaded only when needed:
 - **Efficient redraws**: `vim.o.lazyredraw = true`
 - **Smart completion**: `vim.o.completeopt = "menu,menuone,noselect"`
 
-## 🎯 Design Principles
+## → Design Principles
 
 ### 1. Modularity
 - Each component has a single responsibility

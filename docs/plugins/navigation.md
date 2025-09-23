@@ -1,6 +1,6 @@
 # Enhanced Navigation: Flit + Leap
 
-**🎯 Cross-Mode Compatible**: Works in both standalone Neovim and VSCode.
+**→ Cross-Mode Compatible**: Works in both standalone Neovim and VSCode.
 
 This guide covers the powerful motion system provided by Flit.nvim and Leap.nvim working together.
 
@@ -10,7 +10,7 @@ This guide covers the powerful motion system provided by Flit.nvim and Leap.nvim
 - **Leap.nvim**: Provides the underlying jump system and adds `s`, `S`, `gs` motions
 - **Together**: They create a comprehensive navigation system for precise text movement
 
-## 🚀 Flit.nvim - Enhanced f/t Motions
+## ★ Flit.nvim - Enhanced f/t Motions
 
 ### Purpose
 Flit enhances Vim's basic `f`, `F`, `t`, `T` motions with:
@@ -50,7 +50,7 @@ H e l l o   w o r l d
 ```
 Press `a` to jump to the first `e`, or `b` to jump to the second `e`.
 
-## 🚀 Leap.nvim - 2-Character Jumping
+## ★ Leap.nvim - 2-Character Jumping
 
 ### Purpose
 Leap provides powerful 2-character jumping with:
@@ -89,7 +89,7 @@ H e l l o   w o r l d
 ```
 Press `a` to jump to the first `el`, or `b` to jump to the second `el`.
 
-## 🎯 When to Use Which
+## → When to Use Which
 
 ### Use Flit (f/t motions) when:
 - You want to jump to a **single character**
@@ -103,7 +103,7 @@ Press `a` to jump to the first `el`, or `b` to jump to the second `el`.
 - You want to see **all possible targets** at once
 - You're working with **longer text** or **complex layouts**
 
-## ⚙️ Configuration
+## ⚙ Configuration
 
 ### Flit Configuration
 ```lua
@@ -164,4 +164,4 @@ require("leap").setup({
 
 ---
 
-**Happy navigating!** 🚀✨
+**Happy navigating!** ★✨

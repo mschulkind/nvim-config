@@ -28,7 +28,7 @@ This directory contains comprehensive documentation for the Neovim configuration
 - **[Plugin Development](plugin-development.md)** - How to add new plugins
 - **[Contributing](contributing.md)** - Guidelines for contributing to this config
 
-## 🚀 Quick Navigation
+## ★ Quick Navigation
 
 ### For Beginners
 Start with the [README.md](../README.md) for essential features, then explore:

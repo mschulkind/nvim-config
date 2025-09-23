@@ -2,7 +2,7 @@
 
 This guide shows you how to customize and extend this Neovim configuration to fit your needs.
 
-## 🎯 Overview
+## → Overview
 
 The configuration is designed to be easily customizable while maintaining compatibility with both standalone Neovim and VSCode.
 
@@ -249,7 +249,7 @@ return {
 
 Edit an existing plugin file to add functionality.
 
-## 🎯 VSCode-Specific Customization
+## → VSCode-Specific Customization
 
 ### VSCode-Compatible Plugins
 

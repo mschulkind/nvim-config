@@ -148,7 +148,7 @@ dependencies = {
 }
 ```
 
-## 🚀 Plugin Loading Process
+## ★ Plugin Loading Process
 
 ### 1. Discovery Phase
 - Scan `lua/plugins/` directory
@@ -171,7 +171,7 @@ dependencies = {
 - Apply keymaps
 - Handle errors gracefully
 
-## 🎯 VSCode Compatibility
+## → VSCode Compatibility
 
 ### Automatic Detection
 
@@ -333,7 +333,7 @@ Edit an existing plugin file to add functionality.
 - **Treesitter** - Syntax highlighting
 - **Language-specific plugins** - TypeScript, JSX, etc.
 
-## 🎯 Best Practices
+## → Best Practices
 
 ### Plugin Configuration
 1. **Keep it simple** - Only configure what you need

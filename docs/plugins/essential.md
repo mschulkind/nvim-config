@@ -5,7 +5,7 @@ These are the core plugins that provide the fundamental functionality of this Ne
 ## 🔍 Telescope - File Finding & Searching
 
 **Repository**: `nvim-telescope/telescope.nvim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Fuzzy finder for files, buffers, and more
 
 ### Key Features
@@ -46,7 +46,7 @@ require("telescope").setup({
 ## 🤖 Copilot - AI Code Completion
 
 **Repository**: `zbirenbaum/copilot.lua`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: AI-powered code completion
 
 ### Key Features
@@ -78,7 +78,7 @@ vim.g.copilot_assume_mapped = true
 ## 🌳 Treesitter - Smart Syntax Highlighting
 
 **Repository**: `nvim-treesitter/nvim-treesitter`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Advanced syntax highlighting and text objects
 
 ### Key Features
@@ -131,7 +131,7 @@ require("nvim-treesitter.configs").setup({
 ## 🔧 Fugitive - Git Integration
 
 **Repository**: `tpope/vim-fugitive`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Git wrapper for Neovim
 
 ### Key Features
@@ -166,10 +166,10 @@ When you run `:Git` or press `,gs`, you get an interactive Git status window:
 - **Amend**: Press `ca` to amend last commit
 - **View changes**: Press `dv` to view file differences
 
-## 🎯 Flit.nvim - Enhanced F/T Motions
+## → Flit.nvim - Enhanced F/T Motions
 
 **Repository**: `ggandor/flit.nvim`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Enhanced f, F, t, T motions with labeled targets
 
 ### Key Features
@@ -222,7 +222,7 @@ require("flit").setup({
 ## 🔄 Blink.cmp - Completion Engine
 
 **Repository**: `saghen/blink.cmp`  
-**VSCode Compatible**: ✅  
+**VSCode Compatible**: ✓  
 **Purpose**: Modern completion engine with fuzzy matching
 
 ### Key Features
@@ -247,7 +247,7 @@ require("flit").setup({
 - **Snippets**: Code snippet completions
 - **Copilot**: AI-powered suggestions
 
-## 🎯 Why These Plugins?
+## → Why These Plugins?
 
 ### Telescope
 - **Essential for navigation** - Finding files is the most common task
