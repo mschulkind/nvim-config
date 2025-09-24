@@ -95,6 +95,21 @@ return {
         on_attach = on_attach,
         filetypes = { "css", "scss", "less" },
       })
+      
+      -- Python LSP
+      lspconfig.pyright.setup({
+        on_attach = on_attach,
+        filetypes = { "python" },
+        settings = {
+          python = {
+            analysis = {
+              autoImportCompletions = true,
+              typeCheckingMode = "basic",
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
+      })
     end,
   },
 }

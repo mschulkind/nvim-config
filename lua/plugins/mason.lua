@@ -32,6 +32,7 @@ return {
           "jsonls",      -- JSON
           "html",        -- HTML
           "cssls",       -- CSS
+          "pyright",     -- Python
         },
         -- Automatically set up servers listed in ensure_installed
         automatic_installation = true,
