@@ -39,8 +39,6 @@ vim.keymap.set("i", "<C-S>", "<C-O>:w<CR>", { silent = true, desc = "Save file" 
 -- For when we forget to use sudo to open/edit a file
 vim.keymap.set("c", "w!!", "w !sudo tee % >/dev/null", { silent = true, desc = "Save with sudo" })
 
--- File reload shortcuts
-
 -- Configuration file access
 vim.keymap.set("n", "<leader>v", function()
   vim.cmd("sp " .. vim.fn.stdpath("config") .. "/init.lua")

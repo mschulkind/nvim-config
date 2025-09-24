@@ -11,6 +11,10 @@ vim.loader.enable()
 -- Faster file change detection (250ms)
 vim.o.updatetime = 250
 
+-- Search settings
+vim.o.ignorecase = true  -- Ignore case in searches
+vim.o.smartcase = true   -- Override ignorecase if search contains uppercase
+
 -- Load core configurations
 require("core.autocmds")
 require("core.keymaps")
