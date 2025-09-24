@@ -7,6 +7,29 @@
 -- FILE OPERATIONS
 -- =============================================================================
 
+-- Enable auto-read for external file changes
+vim.opt.autoread = true
+
+-- Auto-reload files when focus returns to Neovim
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  group = vim.api.nvim_create_augroup("FileReload", { clear = true }),
+  pattern = "*",
+  callback = function()
+    if vim.fn.mode() ~= "c" then
+      vim.cmd("checktime")
+    end
+  end,
+})
+
+-- Notify when file changes externally
+vim.api.nvim_create_autocmd({ "FileChangedShellPost" }, {
+  group = vim.api.nvim_create_augroup("FileChangeNotification", { clear = true }),
+  pattern = "*",
+  callback = function()
+    vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.INFO)
+  end,
+})
+
 -- Auto-create directories on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("FileOperations", { clear = true }),

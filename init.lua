@@ -8,6 +8,9 @@ vim.o.more = false
 -- Enable autoloading for better performance (Neovim 0.9+)
 vim.loader.enable()
 
+-- Faster file change detection (250ms)
+vim.o.updatetime = 250
+
 -- Load core configurations
 require("core.autocmds")
 require("core.keymaps")
