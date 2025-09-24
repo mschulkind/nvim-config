@@ -25,6 +25,13 @@ return {
         filters = {
           dotfiles = false,  -- Show hidden files (dotfiles)
         },
+        actions = {
+          open_file = {
+            window_picker = {
+              enable = false,  -- Disable window picker - always open in current window
+            },
+          },
+        },
       })
     end,
     keys = {
