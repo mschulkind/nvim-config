@@ -40,8 +40,6 @@ vim.keymap.set("i", "<C-S>", "<C-O>:w<CR>", { silent = true, desc = "Save file" 
 vim.keymap.set("c", "w!!", "w !sudo tee % >/dev/null", { silent = true, desc = "Save with sudo" })
 
 -- File reload shortcuts
-vim.keymap.set("n", "<leader>r", ":checktime<CR>", { silent = true, desc = "Reload file" })
-vim.keymap.set("n", "<leader>R", ":edit!<CR>", { silent = true, desc = "Force reload file" })
 
 -- Configuration file access
 vim.keymap.set("n", "<leader>v", function()
