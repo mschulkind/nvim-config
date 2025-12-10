@@ -35,7 +35,8 @@ return {
         pickers = {
           find_files = {
             hidden = true,
-            find_command = {
+            -- Use ripgrep if available (faster), otherwise fall back to default
+            find_command = vim.fn.executable("rg") == 1 and {
               "rg",
               "--files",
               "--hidden",
@@ -43,7 +44,7 @@ return {
               "--follow",
               "--glob",
               "!.git/*",
-            },
+            } or nil,  -- nil = use telescope's default (fd or find)
           },
           buffers = {
             path_display = function(_, path) return path end,
