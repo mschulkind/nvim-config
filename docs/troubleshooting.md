@@ -9,36 +9,32 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 #### vim.pack Not Working
 **Symptoms**: Plugins fail to load when using vim.pack, error messages about missing functions
 
-**Cause**: vim.pack requires a **very recent nightly build** of Neovim
+**Cause**: vim.pack requires Neovim 0.12+ (nightly build as of November 2025)
 
 **Solutions**:
-1. **Switch to Lazy.nvim** (recommended):
- ```lua
--- In init.lua, change:
- local PLUGIN_MANAGER = "lazy" -- Use Lazy.nvim instead
- ```
 
-2. **Update Neovim** (if you must use vim.pack):
- ```bash
- # Install latest nightly build
- # See docs/install.md for OS-specific instructions
- ```
+**Update Neovim**:
+```bash
+# Install latest nightly build
+# See docs/install.md for OS-specific instructions
+```
 
 ### Plugin Loading Issues
 
 #### Plugins Not Loading
+
 **Symptoms**: Plugins don't appear or keymaps don't work
 
 **Solutions**:
 1. **Check plugin status**:
- ```vim
- :checkhealth
- ```
+   ```vim
+   :checkhealth
+   ```
 
 2. **View error messages**:
- ```vim
- :messages
- ```
+   ```vim
+   :messages
+   ```
 
 3. **Reload configuration**:
  ```vim
@@ -47,7 +43,7 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 4. **Check VSCode mode**:
  ```lua
- :lua print(require("lib.plugin_manager.plugin_manager").is_vscode())
+ :lua print(vim.g.vscode == 1)
  ```
 
 #### VSCode Plugin Conflicts
@@ -66,7 +62,7 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 **Solutions**:
 1. **Check plugin count**:
  ```lua
- :lua print(vim.inspect(require("lib.plugin_manager.plugin_manager").plugins))
+ :lua print(vim.inspect(vim.pack.list()))
  ```
 
 2. **Disable unnecessary plugins** by setting `vscode = false`
@@ -247,10 +243,10 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 :messages
 
 " Check loaded plugins
-:lua print(vim.inspect(require("lib.plugin_manager.plugin_manager").plugins))
+:lua print(vim.inspect(vim.pack.list()))
 
 " Check VSCode mode
-:lua print(require("lib.plugin_manager.plugin_manager").is_vscode())
+:lua print(vim.g.vscode == 1)
 
 " Check keymaps
 :verbose map <leader>f
@@ -274,17 +270,17 @@ This guide helps you diagnose and fix common issues with this Neovim configurati
 
 #### Check Plugin Loading Order
 ```lua
-:lua print(vim.inspect(require("lib.plugin_manager.plugin_manager").plugins))
+:lua print(vim.inspect(vim.pack.list()))
 ```
 
 #### Check VSCode Filtering
 ```lua
-:lua print(require("lib.plugin_manager.plugin_manager").is_vscode())
+:lua print(vim.g.vscode == 1)
 ```
 
 #### Reload Plugin Manager
 ```lua
-:lua require("lib.plugin_manager.plugin_manager").setup()
+:lua require("lib.plugin_manager_lzn").setup()
 ```
 
 ### Configuration Debugging
@@ -362,11 +358,9 @@ nvim --startuptime startup.log
 
 #### Update Plugins
 ```vim
-" Update all plugins
-:lua require("lib.plugin_manager.plugin_manager").update()
-
-" Or manually update
-:packadd <plugin-name>
+" Update all plugins (vim.pack auto-updates on next launch)
+" Or manually sync:
+:lua vim.pack.update()
 ```
 
 ### External Resources

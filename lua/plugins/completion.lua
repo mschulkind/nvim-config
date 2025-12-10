@@ -7,8 +7,9 @@
 
 return {
   {
-    "zbirenbaum/copilot.lua",
-    config = function()
+    url = "https://github.com/zbirenbaum/copilot.lua.git",
+    event = "InsertEnter",  -- Load when entering insert mode
+    after = function()
       require("copilot").setup({
         
         suggestion = {
@@ -20,11 +21,11 @@ return {
   },
   
   {
-    "saghen/blink.cmp",
-    dependencies = {
-      "zbirenbaum/copilot.lua",
-    },
-    config = function()
+    url = "https://github.com/Saghen/blink.cmp.git",
+    event = "InsertEnter",  -- Load when entering insert mode
+    after = function()
+      -- Ensure copilot is loaded first
+      require("lz.n").trigger_load("copilot.lua")
       local blink_cmp = require("blink.cmp")
       blink_cmp.setup({
         keymap = { preset = "default" },

@@ -194,9 +194,38 @@ require("ibl").setup({
 })
 ```
 
+## Gemini CLI
+
+### gemini-cli.nvim
+**Repository**: `marcinjahn/gemini-cli.nvim`
+**VSCode Compatible**: ❌ (Disabled in VSCode)
+**Purpose**: Integrates Gemini AI into Neovim for prompt-driven queries and assistance
+
+#### Features
+- **Prompt-driven queries** — open an input prompt and send queries to Gemini
+- **History & sessions** — browse and reuse prior queries
+- **Buffer write helpers** — ask Gemini to produce or modify text
+- **Lightweight UI integration** — optional popups/UIs
+
+#### Keymaps
+| Keymap | Action | Description |
+|--------|--------|-------------|
+| `<leader>at` | Toggle | Open/close Gemini UI |
+| `<leader>aa` | Ask | Send a query or open prompt (normal/visual mode) |
+| `<leader>af` | Add file | Add file to context |
+
+#### Configuration
+```lua
+-- Plugin declared in plugins list; minimal setup recommended
+require("gemini").setup({})
+```
+
+#### VSCode Alternative
+- Use VSCode's AI extensions (GitHub Copilot Chat, Codeium, etc.)
+
 ## Utility Plugin Categories
 
-### VSCode-Compatible Utilities 
+### VSCode-Compatible Utilities
 - **Targets.vim** - Text objects
 - **vim-scrolloff-fraction** - Dynamic scrolling
 - **NERD Commenter** - Commenting
@@ -206,7 +235,7 @@ require("ibl").setup({
 - **Gitsigns** - Git integration
 - **indent-blankline** - Indentation guides
 
-### VSCode-Disabled Utilities 
+### VSCode-Disabled Utilities
 - **SwayConfig** - Window manager integration
 - **telescope-undo** - Undo history
 

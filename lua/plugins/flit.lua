@@ -7,8 +7,11 @@
 
 return {
   {
-    "ggandor/flit.nvim",
-    config = function()
+    url = "https://github.com/ggandor/flit.nvim.git",
+    keys = { "f", "F", "t", "T" },  -- Load on these keys
+    after = function()
+      -- Ensure leap is loaded first
+      require("lz.n").trigger_load("leap.nvim")
       require("flit").setup({
         
         -- =============================================================================

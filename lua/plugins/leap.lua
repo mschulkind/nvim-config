@@ -7,8 +7,8 @@
 
 return {
   {
-    "ggandor/leap.nvim",
-    config = function()
+    url = "https://github.com/ggandor/leap.nvim.git",
+    after = function()
       require("leap").setup({
         -- case_sensitive = false,  -- Make searches case sensitive
         -- max_phase_one_targets = 10,  -- Max targets in phase one

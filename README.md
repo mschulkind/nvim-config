@@ -23,21 +23,30 @@ nvim
 ### What Gets Installed
 - **Gruvbox** color scheme
 - **GitHub Copilot** (AI code completion)
-- **Telescope** (fuzzy file finder)
+- **Blink.cmp** (fast completion engine)
+- **Telescope & FZF-lua** (fuzzy file finders)
 - **Tree-sitter** (smart syntax highlighting)
 - **Fugitive** (Git integration)
+- **Gitsigns** (git blame & change indicators)
 - **Leap + Flit** (enhanced navigation)
 - **Lualine** (status line)
-- And many more productivity plugins!
+- **Mason** (LSP server manager)
+- **ToggleTerm** (terminal management)
+- **Conform & nvim-lint** (formatting & linting)
+- **nvim-tree** (file explorer)
+- **NerdCommenter** (code commenting)
+- **indent-blankline** (indentation guides)
+- **Gemini CLI** (AI assistant integration)
+- And more productivity plugins!
 
-> **First Launch**: Plugins will automatically install when you first open Neovim. This may take a few minutes. When installation finishes and the Lazy UI is visible, press `q` to close it.
+> **First Launch**: Plugins will automatically install when you first open Neovim. This may take a few minutes.
 > Note: On first setup run Neovim outside of VSCode so the plugin manager can complete installation and any native build steps. Open a terminal and run:
 >
 > ```bash
 > nvim
 > ```
 >
-> Wait for the Lazy.nvim installer UI to finish; when installation completes and the Lazy UI appears, press `q` to close it. Starting inside the VSCode Neovim extension before plugins are installed can cause some plugins or build steps to fail.
+> Wait for the plugin installer to finish. Starting inside the VSCode Neovim extension before plugins are installed can cause some plugins or build steps to fail.
 
 ---
 
@@ -63,6 +72,8 @@ These features are disabled in VSCode to prevent conflicts (use VSCode's native 
 | **Lualine** | Status line | Use VSCode's status bar |
 | **Gruvbox** | Color scheme | Use VSCode's theme system |
 | **telescope-undo** (`<F5>`) | Undo history | Use VSCode's timeline |
+| **ToggleTerm** (`<leader>t`) | Terminal | Use VSCode's integrated terminal |
+| **Gemini CLI** (`<leader>a*`) | AI assistant | Use VSCode's AI extensions |
 
 
 ### VSCode Setup Required
@@ -79,11 +90,14 @@ These features are disabled in VSCode to prevent conflicts (use VSCode's native 
 |--------|--------|-------------|
 | `,f` | Find files | **Most used** - Fuzzy finder for files |
 | `,o` | Find old files | Recently opened files |
-| `,b` | Find buffers | Switch between open files |
+| `,b` | Find buffers | Switch between open buffers (MRU sorted) |
+| **`,m`** | **Modified files** | **⭐ Show files changed vs origin/master + working dir (with diff preview!)** |
 | `<C-h/j/k/l>` | Navigate splits | Move between windows |
 | `<C-w>s` | Split horizontal | Split window horizontally |
 | `<C-w>v` | Split vertical | Split window vertically |
 | `jj` | Escape | Alternative to Escape key |
+
+> **💡 Pro Tip**: The `,m` keymap is incredibly useful for code review! It shows all files you've changed compared to `origin/master`, including uncommitted changes and untracked files. Each file shows a git diff preview so you can quickly see what changed.
 
 > **Pro tip**: See [Complete Keymap Reference](docs/keymaps.md) for all available shortcuts!
 
@@ -94,6 +108,42 @@ These features are disabled in VSCode to prevent conflicts (use VSCode's native 
 | `gcc` | Comment line | Toggle comment on current line (works great with `V` for visual line mode) |
 | `gcu` | Uncomment line | Uncomment current line (works great with `V` for visual line mode) |
 | `,k` | Delete buffer | Close file without closing window |
+| `,l` | Lint file | Trigger linting for current file |
+
+### LSP (Language Server Protocol)
+
+Language servers provide intelligent code completion, diagnostics, and refactoring. They're automatically installed for TypeScript, Python, JSON, HTML, and CSS.
+
+| Keymap | Action | Description |
+|--------|--------|-------------|
+| `K` | Hover | Show documentation for symbol under cursor |
+| `gd` | Go to definition | Jump to symbol definition (opens in split) |
+| `gr` | Find references | Show all references to symbol |
+| `gi` | Go to implementation | Jump to implementation |
+| `,rn` | Rename | Rename symbol throughout file |
+| `,ca` | Code actions | Show available fixes and refactorings |
+| `,l` | Lint | Trigger linting to find errors |
+
+#### How It Works
+1. **Auto-installation**: Mason automatically installs LSP servers on first launch
+2. **Auto-attach**: Servers connect automatically when you open supported files
+3. **Live diagnostics**: Errors and warnings appear as you type
+4. **Smart completion**: `<Tab>` shows context-aware suggestions
+
+#### Supported Languages (Auto-installed)
+- **TypeScript/JavaScript** - ts_ls (rename, refactoring, quick fixes)
+- **Python** - pyright (type checking, completions, linting with ruff)
+- **JSON** - jsonls (schema validation, formatting)
+- **HTML** - html (attribute completion, validation)
+- **CSS** - cssls (color picking, property completion)
+
+#### Tips
+- Press `K` to see hover documentation (or use `:hover`)
+- Use `gr` to find where a function is used
+- Use `,rn` to safely rename variables/functions across your code
+- Run `,l` to check for issues manually (or it runs automatically on save)
+
+> **Learn more**: [LSP Configuration Guide](docs/configuration-system.md#language-server-protocol) | [Troubleshooting LSP](docs/troubleshooting.md#lsp-issues)
 
 ### Git Integration 
 | Keymap | Action | Description |
@@ -107,7 +157,7 @@ These features are disabled in VSCode to prevent conflicts (use VSCode's native 
 |--------|--------|-------------|
 | `,v` | Open config | Open Neovim config file |
 | `,V` | Reload config | Reload configuration |
-| `,L` | Lazy interface | Open [Lazy plugin manager](#lazy-nvim) (Lazy.nvim only) |
+| `,t` | Toggle terminal | Open/close integrated terminal (standalone only) |
 
 #### Plugin Customization
 Each plugin file in `lua/plugins/` contains commented configuration options showing the most common settings you might want to customize. Browse the plugin files to discover available options:
@@ -115,13 +165,16 @@ Each plugin file in `lua/plugins/` contains commented configuration options show
 - **`flit.lua`** - Enhanced f/t motions (case sensitivity, performance, highlighting)
 - **`leap.lua`** - Lightning-fast navigation (search options, highlighting, key bindings)
 - **`telescope.lua`** - Fuzzy finder (sorting, UI customization, file patterns)
+- **`fzf.lua`** - FZF-lua integration (MRU buffer sorting, layout)
 - **`treesitter.lua`** - Syntax highlighting (auto-install, parsers, text objects)
-- **`completion.lua`** - AI completion (keys, panels, filetype restrictions)
+- **`completion.lua`** - AI completion with Copilot and Blink.cmp
 - **`filetree.lua`** - File explorer (width, grouping, git integration)
 - **`gruvbox.lua`** - Color scheme (terminal colors, text styling)
 - **`lualine.lua`** - Status line (themes, sections, separators)
-- **`formatting.lua`** - Code formatting (timeouts, formatters, LSP preferences)
-- **`simple_plugins.lua`** - Utility plugins (git signs, indentation, notifications)
+- **`formatting.lua`** - Code formatting with Conform (timeouts, formatters)
+- **`mason.lua`** - LSP server management (auto-install servers)
+- **`toggleterm.lua`** - Terminal management (size, position, keybindings)
+- **`simple_plugins.lua`** - Utility plugins (git signs, indentation, AI chat)
 
 Simply uncomment and modify the options you want to change!
 
@@ -132,18 +185,29 @@ Simply uncomment and modify the options you want to change!
 |--------|--------|-------------|
 | `,f` | Find files | Fuzzy finder for files |
 | `,o` | Find old files | Recently opened files |
-| `,b` | Find buffers | Switch between open files |
+| `,m` | Modified files | Files changed vs origin/master + working directory |
 
-**Why it's great**: Fast, fuzzy search with preview
+**Why it's great**: Fast, fuzzy search with preview and git integration
 
 > **Deep dive**: [Telescope documentation](docs/plugins/essential.md#telescope---file-finding--searching)
 
-### Copilot ([GitHub](https://github.com/zbirenbaum/copilot.lua))
+### FZF-lua ([GitHub](https://github.com/ibhagwan/fzf-lua))
+| Keymap | Action | Description |
+|--------|--------|-------------|
+| `,b` | Find buffers | Switch between open buffers (MRU sorted) |
+
+**Why it's great**: Native fzf performance with intelligent MRU buffer sorting
+
+> **Note**: Complements Telescope for buffer management with superior MRU handling
+
+### Copilot & Blink.cmp ([Copilot GitHub](https://github.com/zbirenbaum/copilot.lua) | [Blink GitHub](https://github.com/saghen/blink.cmp))
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `<Tab>` | Accept suggestion | Accept AI code completion |
 
-**Why it's great**: Context-aware code suggestions
+**Why it's great**: Context-aware AI suggestions with modern completion engine
+
+> **Note**: Blink.cmp provides LSP, path, snippet, and buffer completions alongside Copilot
 
 ### Treesitter ([GitHub](https://github.com/nvim-treesitter/nvim-treesitter))
 - **Purpose**: Smart syntax highlighting
@@ -183,7 +247,7 @@ Simply uncomment and modify the options you want to change!
 | `t<char>` | Jump before | Jump just before next occurrence |
 | `T<char>` | Jump before | Jump just before previous occurrence |
 | `s<char><char>` | Leap 2-char | Jump anywhere with 2 characters |
-| `S<char><char>` | Leap line | Jump in current line with 2 characters |
+| `S<char><char>` | Leap backward | Jump backward with 2 characters |
 | `gs<char><char>` | Leap window | Jump anywhere in window with 2 characters |
 | `;` | Repeat | Repeat last motion |
 | `,` | Reverse | Repeat motion in opposite direction |
@@ -192,14 +256,23 @@ Simply uncomment and modify the options you want to change!
 
 > **Master Both**: [Complete Flit + Leap Guide](docs/plugins/navigation.md) | [All Keybinds Reference](docs/keymaps.md#enhanced-navigation)
 
-### Lazy.nvim ([GitHub](https://github.com/folke/lazy.nvim))
+### ToggleTerm ([GitHub](https://github.com/akinsho/toggleterm.nvim))
 | Keymap | Action | Description |
 |--------|--------|-------------|
-| `,L` | Lazy interface | Open plugin manager interface |
+| `<leader>t` | Toggle terminal | Open/close integrated terminal |
+| `jj` (in terminal) | Close terminal | Close terminal from insert or normal mode |
+| `kk` (in terminal) | Normal mode | Exit to normal mode (stay in terminal) |
 
-**Why it's great**: Modern plugin manager with lazy loading, dependency management, and beautiful UI
+**Why it's great**: Seamless terminal integration with smart keybindings
 
-> **Plugin Management**: Lazy.nvim automatically manages plugin installation, updates, and dependencies. Use `,L` to access the interface for managing your plugins.
+> ℹ Note: This feature is disabled in VSCode to avoid overlap with the built-in terminal.
+
+### Mason ([GitHub](https://github.com/williamboman/mason.nvim))
+**Purpose**: Automatic LSP server installation and management
+
+**Why it's great**: Automatically installs language servers (TypeScript, Python, JSON, HTML, CSS)
+
+> **Auto-installed servers**: ts_ls, pyright, jsonls, html, cssls
 
 ## Troubleshooting
 

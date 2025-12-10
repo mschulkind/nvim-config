@@ -24,8 +24,11 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | `,f` | n | Find files | Telescope file finder |
 | `,o` | n | Find old files | Recently opened files |
 | `,b` | n | Find buffers | Switch between hidden buffers (MRU sorted) |
+| **`,m`** | n | **Modified files** | **⭐ Show files changed vs origin/master + working dir (with diff preview!)** |
 | `<C-h/j/k/l>` | n,i | Navigate splits | Move between windows |
 | `<A-Left/Right>` | n | Move windows | Move current window left/right |
+
+> **💡 Pro Tip**: The `,m` keymap is incredibly useful for code review! It shows all files you've changed compared to `origin/master`, including uncommitted changes and untracked files, with a git diff preview for each file.
 
 ### Text Editing 
 | Keymap | Mode | Action | Description |
@@ -54,7 +57,8 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 |--------|------|--------|-------------|
 | `,f` | n | Find files | Telescope file finder |
 | `,o` | n | Find old files | Recently opened files |
-| `,b` | n | Find buffers | Switch between hidden buffers (MRU sorted) |
+| `,b` | n | Find buffers | Switch between buffers (MRU sorted with FZF-lua) |
+| `,m` | n | Modified files | Show files changed vs origin/master + working directory |
 | `<C-Y>` | n | Go to tag | Navigate to tag under cursor |
 
 #### Enhanced Motions (Flit.nvim) 
@@ -161,20 +165,18 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 #### Quickfix Operations
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
-| `,c` | n | Open quickfix | Open quickfix window |
-| `,cc` | n | Close quickfix | Close quickfix window |
-| `,cn` | n | Next error | Go to next quickfix item |
-| `,cp` | n | Previous error | Go to previous quickfix item |
+| `<leader>c` | n | Open quickfix | Open quickfix window |
+| `<leader>cc` | n | Close quickfix | Close quickfix window |
+| `<leader>d` | n | Load diagnostics | Load all diagnostics into quickfix (shows error source) |
+| `<leader>e` | n | Load errors | **Alias** for `<leader>d` (error mnemonic) |
 | `<F2>` | n | Previous error | Go to previous quickfix item |
 | `<F3>` | n | Next error | Go to next quickfix item |
-| `<F9>` | n | Close quickfix | Close quickfix window |
-| `<F10>` | n | Make | Run make and open quickfix |
 
 #### Location List Operations
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
-| `,l` | n | Open location list | Open location list |
-| `,ll` | n | Close location list | Close location list |
+| `<leader>l` | n | Open location list | Open location list |
+| `<leader>ll` | n | Close location list | Close location list |
 | `<C-F2>` | n | Previous location | Go to previous location list item |
 | `<C-F3>` | n | Next location | Go to next location list item |
 
@@ -197,6 +199,13 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `K` | n | Hover | Show LSP hover information with border |
+| `gd` | n | Go to definition | Go to definition in horizontal split |
+| `gD` | n | Go to declaration | Go to declaration |
+| `gi` | n | Go to implementation | Go to implementation |
+| `gr` | n | Go to references | Show all references |
+| `,ca` | n | Code action | Show available code actions |
+| `,rn` | n | Rename | Rename symbol |
+| `,l` | n | Lint | Trigger linting for current file |
 
 ### Treesitter 
 
@@ -224,6 +233,7 @@ Complete reference for all keymaps in this Neovim configuration. All keymaps wor
 | Keymap | Mode | Action | Description |
 |--------|------|--------|-------------|
 | `,k` | n | Delete buffer | Delete buffer without closing window |
+| `,<leader>` | n | Alternate buffer | Switch to alternate buffer (per-window) |
 
 ## VSCode-Disabled Keymaps
 
@@ -240,13 +250,29 @@ These keymaps are disabled in VSCode mode (use VSCode's native features instead)
 |--------|------|--------|-------------------|
 | `<F5>` | n | Telescope undo | Use VSCode's timeline feature |
 
+### Terminal (ToggleTerm) 
+| Keymap | Mode | Action | VSCode Alternative |
+|--------|------|--------|-------------------|
+| `<leader>t` | n | Toggle terminal | Use VSCode's integrated terminal (Ctrl+`) |
+| `jj` (in terminal) | t | Close terminal | N/A |
+| `kk` (in terminal) | t | Normal mode | N/A |
+
+### AI Assistant (Gemini CLI) 
+| Keymap | Mode | Action | VSCode Alternative |
+|--------|------|--------|-------------------|
+| `<leader>at` | n | Toggle Gemini | Use VSCode AI extensions |
+| `<leader>aa` | n,v | Ask Gemini | Use VSCode AI chat |
+| `<leader>af` | n | Add file to context | N/A |
+
 ## Keymap Categories by Use Case
 
 ### For File Management
 - `,f` - Find files
 - `,o` - Recent files
-- `,b` - Switch hidden buffers (MRU sorted)
+- `,b` - Switch buffers (MRU sorted)
+- `,m` - Modified files vs origin/master
 - `,k` - Close buffer
+- `,<leader>` - Alternate buffer
 
 ### For Navigation
 - `<C-h/j/k/l>` - Window navigation
@@ -264,6 +290,14 @@ These keymaps are disabled in VSCode mode (use VSCode's native features instead)
 ### For Configuration
 - `,v` - Open config
 - `,V` - Reload config
+- `,t` - Toggle terminal (standalone only)
+
+### For LSP
+- `K` - Hover documentation
+- `gd` - Go to definition (split)
+- `,ca` - Code actions
+- `,rn` - Rename symbol
+- `,l` - Lint file
 
 ## Tips for Learning Keymaps
 

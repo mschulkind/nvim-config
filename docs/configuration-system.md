@@ -6,20 +6,22 @@ This Neovim configuration uses a modern, modular architecture designed for maint
 
 ```
 config/nvim/
-├── init.lua # Main entry point
+├── init.lua                    # Main entry point
 ├── lua/
-│ ├── core/ # Core Neovim settings
-│ │ ├── settings.lua # Basic settings
-│ │ ├── keymaps.lua # Global keymaps
-│ │ ├── autocmds.lua # Auto commands
-│ │ └── clipboard.lua # Clipboard integration
-│ ├── plugins/ # Plugin configurations
-│ │ ├── init.lua # Plugin manager
-│ │ └── *.lua # Individual plugin files
-│ ├── lib/ # Utility libraries
-│ │ └── plugin_manager/ # Plugin management system
-│ └── utils/ # Helper utilities
-└── docs/ # Documentation
+│   ├── core/                   # Core Neovim settings
+│   │   ├── keymaps.lua         # Global keymaps
+│   │   ├── autocmds.lua        # Auto commands
+│   │   └── clipboard.lua       # Clipboard integration
+│   ├── plugins/                # Plugin configurations
+│   │   ├── telescope.lua       # Telescope setup
+│   │   ├── completion.lua      # Copilot + blink.cmp
+│   │   └── *.lua               # Other plugin files
+│   ├── lib/                    # Utility libraries
+│   │   └── plugin_manager_lzn.lua  # vim.pack + lz.n integration
+│   ├── lsp/                    # LSP configuration
+│   │   └── handlers.lua        # LSP handlers and capabilities
+│   └── utils/                  # Helper utilities
+└── docs/                       # Documentation
 ```
 
 ## Core Components
@@ -32,8 +34,11 @@ The main entry point loads core configurations in order:
 -- Enable autoloading for better performance
 vim.loader.enable()
 
+-- Set leader keys (must be before plugins)
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+
 -- Load core configurations
-require("core.settings")
 require("core.autocmds")
 require("core.keymaps")
 require("core.clipboard")
@@ -41,19 +46,19 @@ require("core.clipboard")
 -- Load utility modules
 require("utils.movement").setup()
 
--- Load plugin configurations
-require("plugins")
+-- Load plugins via vim.pack + lz.n
+require("lib.plugin_manager_lzn").setup()
 ```
 
-### Core Settings (`lua/core/settings.lua`)
+### Core Settings (in `init.lua`)
 
 Contains fundamental Neovim settings:
 
-- **Performance optimizations**: `vim.loader.enable()`, `vim.o.updatetime`
+- **Performance optimizations**: `vim.loader.enable()`, `vim.o.updatetime = 250`
 - **UI settings**: Line numbers, cursor line, sign column
-- **Search settings**: Case sensitivity, highlighting
-- **Indentation**: Smart indenting, tab settings
-- **Terminal integration**: Colors, mouse support
+- **Search settings**: Case sensitivity (`ignorecase`, `smartcase`)
+- **Indentation**: 2-space tabs, `expandtab`
+- **Terminal integration**: True color support
 
 ### Keymaps (`lua/core/keymaps.lua`)
 
@@ -70,32 +75,35 @@ The plugin system uses a data-driven approach where each plugin is defined as a 
 
 ## Plugin Management
 
-### Plugin Manager (`lua/lib/plugin_manager/`)
+### Plugin Manager (`lua/lib/plugin_manager_lzn.lua`)
 
 The plugin manager provides:
 
-- **Auto-discovery**: Automatically finds and loads plugin files
-- **VSCode detection**: Disables conflicting plugins in VSCode
-- **Dependency management**: Handles plugin dependencies
+- **Auto-discovery**: Automatically finds and loads plugin files from `lua/plugins/`
+- **vim.pack integration**: Installs plugins using Neovim's built-in package manager
+- **lz.n lazy loading**: Efficient deferred loading based on events, keys, filetypes
+- **VSCode detection**: Plugins can use `enabled` to disable in VSCode
 - **Error handling**: Graceful failure with notifications
 
 ### Plugin Configuration Format
 
-Each plugin file returns a configuration table:
+Each plugin file returns an array of plugin specs:
 
 ```lua
 return {
- repo = "user/repo", -- Plugin repository
- vscode = true, -- Whether to load in VSCode (optional)
- setup = function() -- Setup function (optional)
--- Plugin configuration
- end,
- keys = { -- Keymaps (optional)
- { "n", "<leader>f", ":Telescope find_files<CR>" }
- },
- dependencies = { -- Dependencies (optional)
- "plenary.nvim"
- }
+  {
+    url = "https://github.com/user/repo.git",  -- Full GitHub URL (required)
+    event = "BufReadPost",                     -- Lazy load trigger (optional)
+    after = function()                         -- Config after load (optional)
+      require("plugin").setup({})
+    end,
+    keys = {                                   -- Keymap triggers (optional)
+      { "<leader>f", "<cmd>Command<cr>", desc = "Description" }
+    },
+    enabled = function()                       -- Conditional loading (optional)
+      return vim.g.vscode ~= 1
+    end,
+  }
 }
 ```
 
@@ -206,7 +214,7 @@ Place utility functions in `lua/utils/` and call them from `init.lua`.
 
 ### Plugin Manager Status
 ```lua
-:lua require("lib.plugin_manager.plugin_manager").plugins
+:lua print(vim.inspect(vim.pack.list()))
 ```
 
 ## Related Documentation

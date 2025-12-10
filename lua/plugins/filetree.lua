@@ -6,12 +6,11 @@
 
 return {
   {
-    "nvim-tree/nvim-tree.lua",
-    cond = function()
+    url = "https://github.com/nvim-tree/nvim-tree.lua.git",
+    enabled = function()
       return vim.g.vscode ~= 1  -- File explorer conflicts with VSCode's explorer
     end,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
+    after = function()
       require("nvim-tree").setup({
         
         view = {

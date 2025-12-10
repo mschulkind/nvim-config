@@ -115,3 +115,12 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     vim.bo.bufhidden = "delete"
   end,
 })
+
+-- ChordPro files (.chord extension)
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  group = vim.api.nvim_create_augroup("FileTypeChord", { clear = true }),
+  pattern = "*.chord",
+  callback = function()
+    vim.bo.filetype = "chordpro"
+  end,
+})

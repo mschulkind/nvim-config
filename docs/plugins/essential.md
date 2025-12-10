@@ -4,8 +4,8 @@ These are the core plugins that provide the fundamental functionality of this Ne
 
 ## Telescope - File Finding & Searching
 
-**Repository**: `nvim-telescope/telescope.nvim` 
-**VSCode Compatible**: 
+**Repository**: `nvim-telescope/telescope.nvim`
+**VSCode Compatible**: ✅
 **Purpose**: Fuzzy finder for files, buffers, and more
 
 ### Key Features
@@ -14,26 +14,28 @@ These are the core plugins that provide the fundamental functionality of this Ne
 - **Multiple pickers** for different content types
 - **Fuzzy matching** with smart scoring
 - **Customizable** appearance and behavior
+- **Git integration** with diff preview
 
 ### Keymaps
 | Keymap | Action | Description |
 |--------|--------|-------------|
 | `,f` | Find files | Search for files in current directory |
 | `,o` | Find old files | Recently opened files |
-| `,b` | Find buffers | Switch between hidden buffers (MRU sorted) |
+| **`,m`** | **Modified files** | **⭐ Files changed vs origin/master + working directory (with diff preview!)** |
 
 ### Configuration
 ```lua
 -- Horizontal layout with preview
 require("telescope").setup({
- defaults = {
- layout_strategy = "horizontal",
- layout_config = {
- horizontal = {
- preview_width = 0.6,
- },
- },
- },
+  defaults = {
+    layout_strategy = "horizontal",
+    layout_config = {
+      horizontal = {
+        preview_width = 0.40,
+        width = 0.95,
+      },
+    },
+  },
 })
 ```
 
@@ -42,6 +44,59 @@ require("telescope").setup({
 - **Git files**: `:Telescope git_files` - Search only tracked files
 - **Help tags**: `:Telescope help_tags` - Search help documentation
 - **Commands**: `:Telescope commands` - Search available commands
+
+### ⭐ Custom Diff Picker (`,m`)
+
+The `,m` keymap is one of the most powerful features - it shows files changed vs `origin/master` plus any uncommitted changes with a git diff preview:
+
+- **Committed changes**: Shows diff against `origin/master` for files in your branch
+- **Uncommitted changes**: Shows working directory diff for modified files
+- **Untracked files**: Shows file content for new files not yet tracked by git
+- **Combined view**: All changes in one unified picker
+
+**Use cases:**
+- Code review before submitting a PR
+- Quick overview of what you've changed in your branch
+- Finding files you forgot to commit
+- Reviewing changes before rebasing
+
+## FZF-lua - Fast Buffer Switching
+
+**Repository**: `ibhagwan/fzf-lua`
+**VSCode Compatible**: ✅
+**Purpose**: Native fzf performance for buffer management
+
+### Key Features
+- **Native fzf** integration for speed
+- **MRU sorting** - most recently used buffer first
+- **Custom layout** with reverse-list display
+- **Complements Telescope** for buffer-specific operations
+
+### Keymaps
+| Keymap | Action | Description |
+|--------|--------|-------------|
+| `,b` | Find buffers | Switch between open buffers (MRU sorted) |
+
+### Why Both Telescope and FZF-lua?
+- **Telescope** excels at file finding and git operations
+- **FZF-lua** provides superior MRU buffer management
+- Together they offer the best of both worlds
+
+### Configuration
+```lua
+require("fzf-lua").setup({
+  buffers = {
+    sort_mru = true,
+    show_all_buffers = true,
+    ignore_current_buffer = false,
+    fzf_opts = {
+      ["--layout"] = "reverse-list",
+      ["--bind"] = "change:top",
+      ["--tac"] = true,
+    },
+  },
+})
+```
 
 ## Copilot - AI Code Completion
 

@@ -7,22 +7,27 @@
 
 return {
   {
-    "leafgarland/typescript-vim",
+    url = "https://github.com/leafgarland/typescript-vim.git",
+    ft = { "typescript", "typescriptreact" },
   },
   
   {
-    "peitalin/vim-jsx-typescript",
+    url = "https://github.com/peitalin/vim-jsx-typescript.git",
+    ft = { "typescript", "typescriptreact" },
   },
   
   {
-    "kevinoid/vim-jsonc",
+    url = "https://github.com/kevinoid/vim-jsonc.git",
+    ft = "jsonc",
   },
   
   {
-    "alexlafroscia/postcss-syntax.vim",
+    url = "https://github.com/stephenway/postcss.vim.git",
+    ft = { "css", "postcss" },
   },
   
   {
-    "vito-c/jq.vim",
+    url = "https://github.com/vito-c/jq.vim.git",
+    ft = "jq",
   },
 }

@@ -90,7 +90,7 @@ If you enabled Copilot (default in this config), authenticate once:
 :Copilot status
 ```
 
-If the command is not found, ensure the Copilot plugin is installed (open Neovim, wait for Lazy to finish installing, then try again).
+If the command is not found, ensure the Copilot plugin is installed (open Neovim, wait for the plugins to finish installing, then try again).
 
 ---
 ## VSCode Neovim: jj composite key
@@ -116,7 +116,9 @@ code --install-extension asvetliakov.vscode-neovim
 ```
 
 After installing the extension, ensure it points to your Neovim executable and init file (see [`config/Code - OSS/User/settings.json`](config/Code - OSS/User/settings.json:1) for an example).
+
 ## Troubleshooting
-- If plugins don’t install on first launch, run `:Lazy` and check for errors
+
+- If plugins don't install on first launch, restart Neovim and check `:messages` for errors
 - Run `:checkhealth` for environment checks
 - Ensure ripgrep is installed and on your PATH

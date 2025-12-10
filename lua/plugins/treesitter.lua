@@ -7,11 +7,11 @@
 
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
-    config = function()
+    url = "https://github.com/nvim-treesitter/nvim-treesitter.git",
+    event = "BufReadPost",  -- Load after opening a file
+    after = function()
+      -- Load textobjects extension first
+      require("lz.n").trigger_load("nvim-treesitter-textobjects")
       require("nvim-treesitter.configs").setup({
         
         auto_install = true,  -- Automatically install missing parsers
@@ -44,5 +44,10 @@ return {
         },
       })
     end,
+  },
+  
+  {
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git",
+    lazy = true,  -- Only load when triggered by treesitter
   },
 }

@@ -7,10 +7,10 @@
 
 return {
   {
-    "tpope/vim-fugitive",
-    config = function()
-      -- Git keymaps
-      vim.keymap.set("n", "<leader>gs", ":Git<CR>", { silent = true })
+    url = "https://github.com/tpope/vim-fugitive.git",
+    lazy = false,  -- Load immediately
+    after = function()
+      vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>", { silent = true, desc = "Git status" })
       vim.api.nvim_set_hl(0, "Modified", { bg = "orange", fg = "black" })
     end,
   },

@@ -1,39 +1,25 @@
 # Plugin System
 
-This Neovim configuration supports both Lazy.nvim and vim.pack plugin managers with a unified configuration format that automatically discovers, loads, and configures plugins.
+This Neovim configuration uses **vim.pack** (Neovim's built-in plugin manager) combined with **lz.n** for lazy loading. This provides a fast, native plugin management experience with no external dependencies.
 
 ## Architecture
 
-### Dual Plugin Manager Support
+### Plugin Manager
 
-This configuration supports both Lazy.nvim and vim.pack plugin managers with automatic selection:
+This configuration uses:
 
-- **Lazy.nvim** - Modern, fast plugin manager with lazy loading
-- **vim.pack** - Built-in Neovim plugin manager, no external dependencies
+- **vim.pack** - Neovim's built-in plugin manager (requires Neovim 0.12+/nightly)
+- **lz.n** - Lightweight lazy-loading library for deferred plugin loading
 
-**Automatic Selection Priority:**
-1. **Explicit choice** via `NVIM_PLUGIN_MANAGER` environment variable
-2. **vim.pack** if available (very recent nightly build)
-3. **Lazy.nvim** as fallback
+> **Important**: vim.pack requires Neovim 0.12+ (nightly build as of Dec 2025).
 
-> **Important**: vim.pack requires a **very recent nightly build** of Neovim. The system will automatically fall back to Lazy.nvim if vim.pack is not available.
+### Plugin Manager (`lua/lib/plugin_manager_lzn.lua`)
 
-**Manual Override:**
-```bash
-# Force Lazy.nvim
-NVIM_PLUGIN_MANAGER=lazy nvim
+The plugin system is a single-file implementation that:
 
-# Force vim.pack (if available)
-NVIM_PLUGIN_MANAGER=vim_pack nvim
-```
-
-### Plugin Manager (`lua/lib/plugin_manager/`)
-
-The plugin system consists of three main components:
-
-- **`plugin_manager.lua`** - Core plugin management logic and vim.pack support
-- **`lazy_integration.lua`** - Lazy.nvim integration and setup
-- **`auto_loader.lua`** - Automatic plugin discovery and loading (legacy)
+1. Auto-discovers all plugin files in `lua/plugins/`
+2. Collects plugin URLs and installs them via `vim.pack.add()`
+3. Hands off lazy-loading to lz.n based on events, keys, or filetypes
 
 ### Plugin Discovery
 
@@ -41,61 +27,64 @@ Plugins are automatically discovered by scanning the `lua/plugins/` directory:
 
 ```
 lua/plugins/
-├── telescope.lua # Telescope configuration
-├── completion.lua # Copilot and completion
-├── treesitter.lua # Treesitter configuration
-├── fugitive.lua # Git integration
-├── lualine.lua # Status line
-├── gruvbox.lua # Color scheme
-├── filetree.lua # File explorer
-├── formatting.lua # Code formatting
-├── flit.lua # Enhanced f/t motions
-├── leap.lua # Lightning navigation
-└── simple_plugins.lua # Multiple simple plugins
+├── telescope.lua       # Telescope configuration
+├── fzf.lua             # FZF-lua for buffer switching
+├── completion.lua      # Copilot and blink.cmp
+├── treesitter.lua      # Treesitter configuration
+├── fugitive.lua        # Git integration
+├── lualine.lua         # Status line
+├── gruvbox.lua         # Color scheme
+├── filetree.lua        # File explorer (nvim-tree)
+├── formatting.lua      # Conform and nvim-lint
+├── flit.lua            # Enhanced f/t motions
+├── leap.lua            # Lightning navigation
+├── mason.lua           # LSP server manager
+├── toggleterm.lua      # Terminal management
+├── simple_plugins.lua  # Multiple simple plugins
+├── syntax_plugins.lua  # Language-specific syntax
+├── dependencies.lua    # Shared dependencies
+└── lz-n.lua            # lz.n lazy-loader itself
 ```
 
 ## Plugin Configuration Format
 
 ### Single Plugin File
 
-Each plugin file returns a Lazy.nvim-compatible configuration table:
+Each plugin file returns an array of plugin specs:
 
 ```lua
+-- lua/plugins/example.lua
 return {
- {
- "user/repo", -- Plugin repository (required)
- cond = function() -- Conditional loading (optional)
- return vim.g.vscode ~= 1 -- Only load when not in VSCode
- end,
- config = function() -- Configuration function (optional)
--- Plugin configuration code
- end,
- keys = { -- Keymaps (optional)
- { "n", "<leader>f", ":Telescope find_files<CR>" }
- },
- dependencies = { -- Dependencies (optional)
- "plenary.nvim"
- }
- }
+  {
+    url = "https://github.com/user/repo.git",  -- Full GitHub URL (required)
+    event = "BufReadPost",                     -- Lazy load on event (optional)
+    keys = {                                   -- Lazy load on keymap (optional)
+      { "<leader>x", "<cmd>MyCommand<cr>", desc = "My command" },
+    },
+    after = function()                         -- Run after plugin loads (optional)
+      require("plugin").setup({ ... })
+    end,
+    enabled = function()                       -- Conditional loading (optional)
+      return vim.g.vscode ~= 1                 -- Only load when not in VSCode
+    end,
+  },
 }
 ```
 
-### Multiple Plugins File
+### Multiple Plugins in One File
 
-For simple plugins, you can define multiple plugins in one file:
+For related plugins, define multiple specs in one file:
 
 ```lua
 return {
- plugins = {
- plugin1 = {
- repo = "user/plugin1",
- setup = function() end
- },
- plugin2 = {
- repo = "user/plugin2",
- vscode = false
- }
- }
+  {
+    url = "https://github.com/user/plugin1.git",
+    lazy = false,  -- Load immediately
+  },
+  {
+    url = "https://github.com/user/plugin2.git",
+    ft = "lua",    -- Load for Lua files only
+  },
 }
 ```
 
@@ -103,19 +92,71 @@ return {
 
 ### Required Options
 
-#### `repo` (string)
-The plugin repository URL or short name:
+#### `url` (string)
+The full GitHub URL for the plugin:
 ```lua
-repo = "nvim-telescope/telescope.nvim" -- Full GitHub repo
-repo = "telescope.nvim" -- Short name (assumes GitHub)
-repo = "https://gitlab.com/user/repo" -- Full URL
+url = "https://github.com/nvim-telescope/telescope.nvim.git"
 ```
 
-### Optional Options
+### Optional Options (lz.n)
 
-#### `vscode` (boolean)
-Whether the plugin should load in VSCode mode:
+#### `lazy` (boolean)
+Whether to lazy-load the plugin:
 ```lua
+lazy = false  -- Load immediately (default: true)
+```
+
+#### `event` (string or table)
+Load plugin on Neovim event:
+```lua
+event = "BufReadPost"           -- Single event
+event = { "BufReadPre", "BufNewFile" }  -- Multiple events
+```
+
+#### `keys` (table)
+Load plugin when keymap is pressed:
+```lua
+keys = {
+  { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+}
+```
+
+#### `ft` (string or table)
+Load plugin for specific filetypes:
+```lua
+ft = "lua"                      -- Single filetype
+ft = { "typescript", "javascript" }  -- Multiple filetypes
+```
+
+#### `colorscheme` (string)
+Load plugin when colorscheme is set:
+```lua
+colorscheme = "gruvbox"
+```
+
+#### `after` (function)
+Configuration function that runs after plugin loads:
+```lua
+after = function()
+  require("telescope").setup({ ... })
+end
+```
+
+#### `before` (function)
+Configuration function that runs before plugin loads:
+```lua
+before = function()
+  vim.g.some_setting = true
+end
+```
+
+#### `enabled` (function or boolean)
+Conditionally enable/disable the plugin:
+```lua
+enabled = function()
+  return vim.g.vscode ~= 1  -- Disable in VSCode
+end
+```
 vscode = true -- Load in both modes (default)
 vscode = false -- Disable in VSCode mode
 ```
@@ -295,14 +336,14 @@ Edit an existing plugin file to add functionality.
 :checkhealth
 ```
 
-### View Plugin Registry
+### View Installed Plugins
 ```lua
-:lua print(vim.inspect(require("lib.plugin_manager.plugin_manager").plugins))
+:lua print(vim.inspect(vim.pack.list()))
 ```
 
 ### Check VSCode Mode
 ```lua
-:lua print(require("lib.plugin_manager.plugin_manager").is_vscode())
+:lua print(vim.g.vscode == 1)
 ```
 
 ### View Error Messages

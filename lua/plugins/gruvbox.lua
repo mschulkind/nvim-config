@@ -7,11 +7,12 @@
 
 return {
   {
-    "ellisonleao/gruvbox.nvim",
-    cond = function()
+    url = "https://github.com/ellisonleao/gruvbox.nvim.git",
+    colorscheme = "gruvbox",  -- Load when colorscheme is set
+    enabled = function()
       return vim.g.vscode ~= 1  -- Colorscheme conflicts with VSCode's theme
     end,
-    config = function()
+    before = function()
       require("gruvbox").setup({
         -- terminal_colors = true,  -- Enable terminal colors
         -- undercurl = true,  -- Enable undercurl support
@@ -19,7 +20,6 @@ return {
         -- bold = true,  -- Enable bold text
         -- italic = { strings = true, comments = true, operators = false, folds = true },  -- Italic text options
       })
-      vim.cmd("colorscheme gruvbox")
     end,
   },
 }
